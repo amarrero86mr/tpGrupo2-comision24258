@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const userControler = require('../controllers/userControler');
+const userControler = require('../controllers/userControler.js');
 
-router.get('/', userControler.getAllUser);
+router.get('/', userControler);
 
 // deberia haber otros endponits
 

@@ -1,4 +1,4 @@
-const coneccionBD = require('../db/dbConfig');
+const coneccionBD = require('../db/dbConfig.js');
 
 
 const getAllUser = (req, res) => {

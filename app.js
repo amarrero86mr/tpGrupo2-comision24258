@@ -1,6 +1,6 @@
 const express = require('express');
 const dotenv = require('dotenv');
-const userRoutes = require('./src/routes/userRoutes');
+const userRoutes = require('./src/routes/userRoutes.js');
 
 const app = express();
 
@@ -15,7 +15,7 @@ app.get('/', (req,res) =>
         res.status(200).send('esto es el index.html');
     });
 
-const Port = 3306;
+const Port = 3000;
 app.listen(Port, () => {
   console.log(`Server running on port ${Port}`);
 });
