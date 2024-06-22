@@ -1,0 +1,128 @@
+.form {
+    display: grid;
+    margin: 2vw;
+    padding: 4vw;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(1fr);
+    gap: 0em 7em;
+    justify-content: center;
+}
+
+.form p,
+.form label,
+label {
+    font-family: var(--primary-font);
+    font-size: 2em;
+}
+
+/* Establece el ancho de todos los inputs y textarea al 100% */
+.form input,
+.form textarea {
+    width: 100%;
+    margin: 10px 0px;
+}
+
+/* queda */
+input,
+button {
+    height: 38px;
+}
+
+/* Estilos para los inputs */
+input,
+textarea,
+select {
+    background-color: var(--form-back);
+    padding: 5px 10px;
+    border-radius: 10px;
+    text-transform: capitalize;
+    width: calc(100% - 20px);
+    font-size: 2em;
+    border: solid 2px var(--form-border);
+}
+
+input[type=radio] {
+    appearance: none;
+    margin-right: 0;
+    padding: 0;
+    max-width: 17px;
+    max-height: 17px;
+    background-color: white;
+    outline: solid 3px var(--form-border);
+    border: solid 3px white;
+    border-radius: 10px;
+}
+input[type=radio]:checked {
+    background-color: var(--secondary-solid);
+}
+
+button {
+    background-color: var(--secondary-solid);
+    color: var(--primary-solid);
+    border: 0px;
+    border-radius: 18px;
+    width: 130px;
+    height: 35px;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background-color: var(--primary-solid);
+    color: var(--form-back);
+}
+
+.button_borrar{
+    background-color: #FF3131;
+    color: var(--form-back);
+}
+.button_borrar:hover {
+    background-color: #520303;
+    color: var(--form-back);
+}
+.form_radiothree>div {
+    display: flex;
+    justify-content: center;
+}
+
+.form_radiothree>div>label {
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    margin: 0 4vw;
+}
+.form_radiothree>div>label>input {
+    width: 30px;
+}
+
+.warnings{
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: #fc2e2e;
+    padding-top: 20px;
+    font-size: 2em;
+}
+
+@media(width < 768px) {
+    .form_radiothree>div {
+    flex-wrap: wrap;
+    }
+}
+@media(width < 480px) {
+
+    .form {
+        display: flex;
+        flex-direction: column;
+    }
+    .form_radiothree>div {
+        flex-direction: column;
+        justify-content: start;
+    }
+    input,
+    textarea,
+    select {
+        width: fit-content;
+    }
+}

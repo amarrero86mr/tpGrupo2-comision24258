@@ -1,0 +1,200 @@
+.container, body {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: var(--primary-font);
+}
+.hero {
+    margin: 0 3vw;
+    font-weight: 800;
+}
+.hero>p {
+    font-size: 1.8em;
+}
+.hero__title {
+    margin: 3vw 0;
+    font-family: var(--title-font);
+    font-size: 3em;
+    text-decoration: underline 3px var(--primary-solid);
+    text-underline-position: under;
+}
+.title__secondary {
+    margin: 3vw ;
+    font-size: 2.5em;
+}
+
+.form__registro {
+    display: grid;
+    margin: 2vw auto;
+    margin-bottom: 2vw;
+    width: 70%;
+    grid-template-columns: repeat(2, 2fr);
+    grid-template-rows: repeat(1fr);
+    gap: 1vw 2vw;
+}
+fieldset {
+    border: none;
+}
+/* Estilos para los inputs */
+input,
+textarea,
+select,
+option {
+    font-family: var(--primary-font);
+    background-color: var(--form-back);
+    padding: 5px 10px;
+    border: 1px solid var(--form-border);
+    border-radius: 12px;
+    width: 100% ;
+    /* Ancho del input, descontando el padding */
+    height: 5vh;
+    font-size: 1.5em;
+    font-weight: 800;
+}
+label {
+    padding: 5px 10px;
+    text-transform: capitalize;
+    font-size: 1.5em;
+}
+
+/* ubicacion de los divs */
+/* .form__name{}
+.form__apellido{}
+.form__tipodocumento{}
+.Form__documento{} */
+.form__Genero {
+    margin: 2vw 0;
+    width: 80%;
+    display: flex;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    align-items: center;
+    justify-content: start;
+    gap: 2vw;
+}
+.form__Genero>input, .form__Genero>label{
+    height: 20px;
+}
+/* .form__provincia{}
+.form_ciudad{}
+.form__calle{}
+.form__altura{}
+.form__depto{}
+.form__cpostal{} */
+.form__telefono{
+    margin: 2vw 0;
+}
+.form__repit-email{
+    margin-bottom: 2vw;
+}
+.form__telefono,
+.form__email,
+.form__repit-email,
+.form__pass,
+.form__repit-pass{
+    width: 60%;
+    grid-column: span 2;
+}
+.form__acept{
+    display: flex;
+    grid-column: span 2;
+    align-items: center;
+    justify-content: start;
+    margin: 2vw 0;
+}
+.form__acept>input{
+    width: 20px;
+    height: 20px;
+}
+
+.form__acept>label>a {
+    font-weight: 700;
+    color: var(--primary-solid);
+    text-decoration: underline;
+}
+
+input[type=radio] {
+    appearance: none;
+    margin-right: 0;
+    padding: 0;
+    width: 17px;
+    height: 17px;
+    background-color: white;
+    outline: solid 3px var(--form-border);
+    border: solid 3px white;
+    border-radius: 10px;
+}
+input[type=radio]:checked {
+    background-color: var(--secondary-solid);
+}
+
+#acept_terminos{
+    appearance: none;
+    border-radius: 5px;
+}
+
+#acept_terminos:checked{
+    background-image: url("/imgs/icons/square-check-solid.svg");
+    background-size: cover;
+    background-position: center;    
+}
+
+.button__section{
+    display: flex;
+    grid-column: span 2;
+    align-items: center;
+    justify-content: end;
+    gap: 4vw;
+}
+
+button {
+    background-color: var(--secondary-solid);
+    color: var(--primary-solid);
+    border: 0px;
+    border-radius: 18px;
+    width: 160px;
+    height: 35px;
+    font-size: 1.8em;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+button:hover {
+    background-color: var(--primary-solid);
+    color: var(--form-back);
+}
+.button_borrar{
+    background-color: #FF3131;
+    color: var(--form-back);
+}
+.button_borrar:hover {
+    background-color: #520303;
+    color: var(--form-back);
+}
+
+.warnings{
+    width: 200px;
+    text-align: center;
+    margin: auto;
+    color: #fc2e2e;
+    padding-top: 20px;
+    font-size: 2em;
+}
+
+@media (max-width: 768px) {
+    .form__Genero {
+        margin: 2vw 0;
+        width: 100%;
+        flex-wrap: wrap;
+        gap: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .form__registro {
+        display: flex;
+        flex-direction: column;
+    }
+    .form__Genero {
+        flex-direction: column;
+        justify-content: end;
+    }
+}

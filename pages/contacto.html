@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto | tradicion criolla</title>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/pags/contacto.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../imgs/icons/favicon-32x32.png">
+</head>
+<body class="container">
+    <header>
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                        alt="Logo de Tradición Criolla"></a>
+            </div>
+            <!-- el siguiente div esta oculto para hacerlo visible en la etapa responsive -->
+            <div class="navbar__menu">
+                <label for="check-menu-responsive" class="checkbtn-menu-responsive">
+                    <img class="img-menu-responsive" src="../imgs/icons/bars-solid.svg"
+                        alt="favicon de menu">
+                </label>
+                <input hidden type="checkbox" id="check-menu-responsive">
+                <ul class="navbar__menu-list">
+                    <li class="navbar__menu-item con__submenu"><a href="../pages/mercado.html">MERCADO</a> <img
+                            src="../imgs/icons/chevron-down-solid.svg" alt="icono de flecha abajo">
+                        <ul class="submenu">
+                            <li class="submenu__items">
+                                <a href="../pages/mercado.html" class="submenu__link">Yerbas</a>
+                            </li>
+                            <li class="submenu__items">
+                                <a href="../pages/mercado.html" class="submenu__link">Mates</a>
+                            </li>
+                            <li class="submenu__items">
+                                <a href="../pages/mercado.html" class="submenu__link">Termos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navbar__menu-item"><a href="#">CONTACTO</a></li>
+                    <li class="navbar__menu-item"><a href="../pages/login.html">INGRESAR</a></li>
+                    <li class="navbar__menu-item"><a href="../pages/cart.html"><img 
+                        src="../imgs/icons/cart-shopping-solid.svg" alt="favicon de carrito de compras"></a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <!-- section fin semantico para busqueda de google -->
+        <section >
+            <div class="hero">
+                <h2 class="hero__title">CONTACTO</h2>
+                <p>Deja tu comentario o consulta llenando el formulario</p>
+            </div>
+            <form id="form_contacto">
+                <div class="form">
+                    <div class="form__name">
+                        <input type="text" name="nombre" id="nombre" placeholder="nombre">
+                    </div>
+                    <div class="form__apellido">
+                        <input type="text" name="apellido" id="apellido" placeholder="apellido">
+                    </div>
+                    <div class="form__dato_email">
+                        <input type="email" name="email" id="email" placeholder="email">
+                    </div>
+                    <div class="form__dato_telefono">
+                        <input type="tel" name="telefono" id="telefono" placeholder="telefono">
+                    </div>
+                    <div class="form_radiothree form__dato_motcontactarnos">
+                        <p>Motivo de contactarnos:</p>
+                        <div>
+                            <label for="motivo_consulta">
+                                <input type="radio" name="motcontactarnos" id="motivo_consulta" value="1"> Consulta/Otro
+                            </label>
+                            <label for="motivo_proveedor">
+                                <input type="radio" name="motcontactarnos" id="motivo_proveedor" value="2"> Proveerdor
+                            </label>
+                            <label for="motivo_trabajacnos">
+                                <input type="radio" name="motcontactarnos" id="motivo_trabajacnos" value="3"> Trabaja
+                                con
+                                Nosotros
+                            </label>
+                        </div>
+                    </div>
+                    <div class="mot_desplegable" id="mot_desplegable"></div>
+                    <div class="segundo_mot_deplegable" id="segundo_mot_deplegable"></div>
+
+                    <div class="form_mensaje">
+                        <textarea name="mensaje" id="mensaje" cols="30" rows="10" placeholder="mensaje"></textarea>
+                    </div>
+                    <div class="button_send">
+                        <button type="submit">enviar</button>
+                    </div>
+                    <p id="warnings" class="warnings"></p>
+                </div>
+            </form>
+            <div class="textos-contacto">
+                <p>
+                    Tambien puedes comunicarse por los siguientes canales y redes sociales o visitarnos
+                    en nuestra sucursal
+                </p>
+
+                <ul class="contacto">
+                    <li>
+                        <img src="../imgs/icons/location-dot-solid.svg" alt="icono de locación">
+                        <p>Av.Corrientes, C1043 Cdad. Autonoma de Buenos Aires</p>
+                    </li>
+                    <li>
+                        <img src="../imgs/icons/envelope-solid.svg" alt="icono de carta">
+                        <p>consultas.tcriolla@tcriolla.com</p>
+                    </li>
+                    <li>
+                        <img src="../imgs/icons/whatsapp.svg" alt="icono de whatsapp">
+                        <p>+54 9 11 12345678</p>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="section__redes">
+                    <li><a href="../pages/contacto.html"><img src="../imgs/icons/facebook.svg" alt=""></a></li>
+                    <li><a href="../pages/contacto.html"><img src="../imgs/icons/twitter.svg" alt=""></a></li>
+                    <li><a href="../pages/contacto.html"><img src="../imgs/icons/youtube.svg" alt=""></a></li>
+                    <li><a href="../pages/contacto.html"><img src="../imgs/icons/instagram.svg" alt=""></a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <ul>
+                <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                <li><a href="../pages/mercado.html">MERCADO</a></li>
+                <li><a href="../pages/registro.html">REGISTRARSE</a></li>
+                <li><a href="../pages/nosotros.html">NOSOTROS</a></li>
+            </ul>
+            <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                    alt="logo de tradicion criolla"></a>
+        </div>
+        <p>Derechos Registrados 2024 - tradición criolla®</p>
+    </footer>
+    <script src="../scripts/contacto.js"></script>
+    <script src="../scripts/validacion_contacto.js"></script>
+</body>
+</html>

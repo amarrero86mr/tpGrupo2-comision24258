@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tradición Criolla</title>
+
+        <link rel="stylesheet" href="./styles/index.css">
+        <!-- <link rel="stylesheet" href="./styles/pags/nosotros.css"> -->
+        <link rel="stylesheet" href="./styles/pags/home.css">
+
+        <link rel="icon" type="image/png" sizes="32x32" href="../imgs/icons/favicon-32x32.png">
+    </head>
+
+    <body class="container">
+        <header>
+            <nav class="navbar">
+                <div class="navbar__logo">
+                    <a href="./index.html"><img src="./imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                            alt="Logo de Tradición Criolla"></a>
+                </div>
+                <!-- el siguiente div esta oculto para hacerlo visible en la etapa responsive -->
+                <div class="navbar__menu">
+                    <label for="check-menu-responsive" class="checkbtn-menu-responsive">
+                        <img class="img-menu-responsive" src="./imgs/icons/bars-solid.svg" alt="favicon de menu">
+                    </label>
+                    <input hidden type="checkbox" id="check-menu-responsive">
+
+                    <ul class="navbar__menu-list">
+                        <li class="navbar__menu-item con__submenu"><a href="../pages/mercado.html">MERCADO</a> <img
+                                src="./imgs/icons/chevron-down-solid.svg" alt="icono de flecha abajo">
+                            <ul class="submenu">
+                                <li class="submenu__items">
+                                    <a href="../pages/mercado.html" class="submenu__link">Yerbas</a>
+                                </li>
+                                <li class="submenu__items">
+                                    <a href="../pages/mercado.html" class="submenu__link">Mates</a>
+                                </li>
+                                <li class="submenu__items">
+                                    <a href="../pages/mercado.html" class="submenu__link">Termos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="navbar__menu-item"><a href="./pages/contacto.html">CONTACTO</a></li>
+                        <li class="navbar__menu-item"><a href="./pages/login.html">INGRESAR</a></li>
+                        <li class="navbar__menu-item"><a href="./pages/cart.html"><img
+                                    src="./imgs/icons/cart-shopping-solid.svg" alt="favicon de carrito de compras"></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <section class="hero__baner">
+            <div>
+                <h1>tradición criolla</h1>
+                <p>queremos compartir con vos lo que nos gusta</p>
+                <p>te invitamos a conocer mas</p>
+                <a href="./pages/nosotros.html">NOSOTROS</a>
+            </div>
+        </section>
+
+        <section class="product">
+            <h2>Los más pedidos</h2>
+            <!-- futuro carrusel tipo crosfa -->
+            <div class="product__container">
+                <div class="product__item">
+                    <div>
+                        <p>Yerba Amanda Tradicional por 1kg</p>
+                        <p>Origen: Argentina</p>
+                        <hr>
+                        <a href="../pages/item.html">COMPRAR</a>
+                    </div>
+                    <img src="./imgs/yerbas/1-ym-amanda.png" alt="Amanda Tradicional por 1kg">
+                </div>
+                <div hidden class="product__item">
+                    <div>
+                        <p>Yerba Canarias Tradicional por 1kg</p>
+                        <p>Origen: Brasil</p>
+                        <hr>
+                        <a href="../pages/item.html">COMPRAR</a>
+                    </div>
+                    <img src="./imgs/yerbas/3-ym-canarias.png" alt="Canarias Tradicional por 1kg">
+                </div>
+                <div hidden class="product__item">
+                    <div>
+                        <p>Yerba Piporé Tradicional - 1kg</p>
+                        <p>Origen: Argentina</p>
+                        <hr>
+                        <a href="../pages/item.html">COMPRAR</a>
+                    </div>
+                    <img src="./imgs/yerbas/5-ym-pipore.png" alt="Piporé Tradicional - 1kg">
+                </div>
+            </div>
+
+            <!-- futuro carrusel tipo crosfa -->
+            <div class="product__container">
+                <div class="product__item">
+
+                    <div>
+                        <p>Mate de madera algarrobo base decorada en negro con bombilla de aluminio</p>
+                        <p>Marca: Argtentino</p>
+                        <hr>
+                        <a href="../pages/item.html">COMPRAR</a>
+                    </div>
+                    <img src="./imgs/mates/1-mate-artentino-negro.png"
+                        alt="Mate de madera algarrobo base decorada en negro con bombilla de aluminio">
+
+                </div>
+                <div hidden class="product__item">
+                    <div>
+                        <p>Mate de madera algarrobo decorado con virola de acero inoxidable</p>
+                        <p>Marca: Estilo Austral</p>
+                        <hr>
+                        <a href="../pages/item.html">COMPRAR</a>
+                    </div>
+                    <img src="./imgs/mates/4-mate-estiloaustral-madera-acero.png"
+                        alt="Mate de madera algarrobo decorado con virola de acero inoxidable">
+                </div>
+                <div hidden class="product__item">
+                    <div>
+                        <p>Mate con base de madera y cuerpo de ceramica terminada en tonos rojizos, con bombilla</p>
+                        <p>Marca: Productos Chaco</p>
+                        <hr>
+                        <a href="./pages/item.html">COMPRAR</a>
+                    </div>
+                    <img src="./imgs/mates/8-mate-productoschaco-ceramica-rojo.png"
+                        alt="Mate con base de madera y cuerpo de ceramica terminada en tonos rojizos, con bombilla">
+                </div>
+            </div>
+        </section>
+
+        <section class="section__artnuevos">
+            <h2>Nuevos Artículos</h2>
+            <!-- este sera un slider , por ahora es estatico -->
+            <div class="glide">
+                <div class="glide__track" data-glide-el="track">
+                    <ul class="glide__slides">
+                        <li class="glide__slide">
+                            <img src="./imgs/termos/1-termo-newaegle-acero.png"
+                                alt="Termo New Eagle de acero inoxidable tipo bala con pico cebador">
+                            <div>
+                                <p>Termo</p>
+                                <hr>
+                                <p>Termo New Eagle de acero inox tipo bala con pico cebador</p>
+                            </div>
+                            <a href="./pages/item.html">VER MAS</a>
+                        </li>
+                        <li class="glide__slide">
+                            <img src="./imgs/accesorios/1-yerbero-azucarero-selva.png"
+                                alt="yerbero y azucarero tipo bolsa con sierre estampado en diseño selva">
+                            <div>
+                                <p>Yerbero</p>
+                                <hr>
+                                <p>yerbero y azucarero tipo bolsa estampado en diseño selva</p>
+                            </div>
+                            <a href="./pages/item.html">VER MAS</a>
+                        </li>
+                        <li class="glide__slide">
+                            <img src="./imgs/accesorios/1-despilvillador-variedad.png"
+                                alt="Despolvillador de yeba en plastico colores varios">
+                            <div>
+                                <p>Despolvillador</p>
+                                <hr>
+                                <p>Despolvillador de yeba en plastico colores varios</p>
+                            </div>
+                            <a href="./pages/item.html">VER MAS</a>
+                        </li>
+                        <li class="glide__slide">
+                            <img src="./imgs/bolsos/1-bolso-mochila-matero.png"
+                                alt="bolso porta equipo de mate, combertible a morral y mochila">
+                            <div>
+                                <p>Bolso</p>
+                                <hr>
+                                <p>bolso porta equipo de mate, combertible a morral y mochila</p>
+                            </div>
+                            <a href="./pages/item.html">VER MAS</a>
+                        </li>
+                        <li class="glide__slide">
+                            <img src="./imgs/bombillas/1-bombilla-picoloro.png"
+                                alt="Bombilla de acero inoxidable filtro pala picoloro">
+                            <div>
+                                <p>Bombilla</p>
+                                <hr>
+                                <p>Bombilla de acero inoxidable filtro pala picoloro</p>
+                            </div>
+                            <a href="./pages/item.html">VER MAS</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glide__arrows" data-glide-el="controls">
+                    <button class="glide__arrow glide__arrow--left" data-glide-dir="<">
+                        <img src="./imgs/icons/chevron-left-solid.svg" alt="flecha a la isquierda">
+                        <!-- <iconify-icon icon="tabler:chevron-left"></iconify-icon> -->
+                    </button>
+                    <button class="glide__arrow glide__arrow--right" data-glide-dir=">">
+                        <img src="./imgs/icons/chevron-right-solid.svg" alt="flecha a la derecha">
+                        <!-- <iconify-icon icon="tabler:chevron-right"></iconify-icon> -->
+                    </button>
+                </div>
+            </div>
+
+        </section>
+
+        <footer>
+            <div>
+                <ul>
+                    <li><a href="./pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="./pages/mercado.html">MERCADO</a></li>
+                    <li><a href="./pages/registro.html">REGISTRARSE</a></li>
+                    <li><a href="./pages/nosotros.html">NOSOTROS</a></li>
+                </ul>
+                <a href="./index.html"><img src="./imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                        alt="logo de tradicion criolla"></a>
+            </div>
+            <p>Derechos Registrados 2024 - tradición criolla®</p>
+      </footer>
+        <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>
+        <script>
+            let opcionesGlide = {
+                type: 'carousel',
+                startAt: 1,
+                perView: 3,
+                breakpoints: {
+                    768: {
+                        perView: 3,
+                    },
+                    700: {
+                        perView: 2,
+                    },
+                }
+            }
+            new Glide('.glide', opcionesGlide).mount()
+        </script>
+    </body>
+</html>

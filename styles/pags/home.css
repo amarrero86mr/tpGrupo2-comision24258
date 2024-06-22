@@ -1,0 +1,216 @@
+.hero__baner {
+    background-image: linear-gradient( rgba(129, 132, 77, 0.71), rgba(252, 252, 225, 0.151)),
+        url("../../imgs/fotos/fotobanermate.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 370px;
+}
+.hero__baner>div {
+    padding: 2.8vw;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+}
+.hero__baner>div>h1{
+    font-family: var(--title-font);
+    font-size: 7em;
+    color: var(--primary-solid);
+    letter-spacing: 0.3vw;
+}
+.hero__baner>div>p {
+    font-family: var(--primary-font);
+    font-weight: 700;
+    font-size: 2.8em;
+    color: var(--dark-gren-solid);
+}
+
+.hero__baner>div>a {
+    font-family: var(--secondary-font);
+    font-size: 2.5em;
+    font-weight: 700;
+    color: var(--secondary-solid);
+    background-color: var(--primary-solid);
+    border-radius: 20px;
+    width: 180px;
+    height: 40px;
+    text-align: center;
+    align-content: center;
+}
+
+.product{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3vw auto;
+    gap: 5vw;
+}
+.product__item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    background-image: url(../../imgs/logo/marco-back.png);
+    background-position: center;
+    background-size: 80vw;
+}
+.product__item>div {
+    width: 30vw;
+    max-height: 40vh;
+    text-align: right;
+}
+
+.product__item>div>p {
+    font-family: var(--secondary-font);
+    font-weight: 600;
+    font-size: 2.5em;
+    gap: 2vh;
+}
+.product__item>div>a {
+    width: 160px;
+    height: 40px;
+    margin: 2vh;
+    background-color: var(--primary-solid);
+    color: var(--secondary-solid);
+    font-family: var(--secondary-font);
+    font-size: 2.5em;
+    font-weight: 700;
+    border-radius: 20px;
+    text-align: center;
+    align-content: center;
+}
+.product__item>img {
+    width: 30vw;
+}
+
+.product__item:nth-child(2),
+.product__item:nth-child(3) {
+    display: none;
+}
+
+hr {
+appearance: none;
+border: solid 2px ;
+color: var(--primary-solid);
+}
+
+.section__artnuevos {
+    margin: 3vw 2vw;
+}
+h2 {
+    font-family: var(--title-font);
+    font-size: 5em;
+    color: var(--primary-solid);
+    letter-spacing: 0.2vw;
+}
+
+.glide {
+    margin-bottom: 2vw;
+}
+.glide__track{
+    margin: 0 70px;
+}
+.glide__slide {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--secondary-font);
+    font-weight: 700;
+    font-size: 1.8em;
+    padding: 2vw;
+    align-items: center;
+    justify-content: space-between;
+}
+.glide__slide>img {
+    width: 20vw;
+}
+.glide__slide>div {
+    height: 14vh;
+}
+.glide__slide>div>p {
+    padding: 0.3vw 1vw;
+}
+.glide__slide>div>p:first-child {
+    padding-left: 2vw;
+    font-family: 1em;
+    font-weight: 800;
+}
+
+.glide__slide>a {
+    width: 140px;
+    height: 40px;
+    margin: 2vh;
+    background-color: var(--primary-solid);
+    color: var(--secondary-solid);
+    font-family: var(--secondary-font);
+    font-size: 1em;
+    font-weight: 700;
+    border-radius: 20px;
+    text-align: center;
+    align-content: center;
+    
+}
+
+.glide__arrow--left{
+    left: 0;
+}
+.glide__arrow--right {
+    right: 0;
+}
+.glide__arrow--left,
+.glide__arrow--right {
+    box-shadow: none;
+}
+
+.glide__arrow--left:hover,
+.glide__arrow--right:hover {
+    
+    background-color: transparent;
+}
+.glide__arrow>img{
+    width: 35px;
+}
+
+@media (max-width: 768px) {
+    .hero__baner{
+        height: 300px;
+    }
+    .hero__baner>div>h1{
+        font-size: 5em;
+    }
+
+    .product__item {
+        width: 80vw;
+        justify-content: space-around;
+        background-size: 100vw;
+    }
+    .product__item>div {
+        width: 45vw;
+    }
+    .product__item>div>p {
+        font-size: 2em;
+        gap: 1.8vh;
+    }
+    .product__item>div>a {
+        width: 140px;
+        height: 35px;
+        margin: 1vh;
+        font-size: 2em;
+    }
+    .section__artnuevos>h2 {
+        font-size: 3.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero__baner>div>p {
+        font-size: 2em;
+    }
+    .product{
+        margin: 10vw 0;
+    }
+    .product__item {
+        gap: 6vw;
+    }
+    .glide {
+        height: 300px;
+    }
+}

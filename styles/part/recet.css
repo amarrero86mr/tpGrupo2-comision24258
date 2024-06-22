@@ -1,0 +1,25 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    color: var(--dark-gren-solid);
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 60%;
+}
+
+a {
+    text-decoration: none;
+    font-family: inherit;
+    color: inherit;
+    display: inline-block;
+}
+
+ul,
+ol {
+    list-style-type: none;
+}

@@ -1,0 +1,26 @@
+:root {
+/* colors */
+    --primary-solid: #007D41;
+    --primary-07: rgb(0, 125, 65, 0.7); /* puede ser interesante para los hover */
+
+    --secondary-solid: #7ED957;
+    --secondary-07: rgb(126, 217, 87, 0.7); /* no creo que se use */
+
+            /*  header & footer*/
+    --brown-mate-solid: #6C4446;
+    --green-yerba-solid: #81844D;
+    --green-yerba-07: #81844dd0;
+
+
+    --dark-gren-solid: #222B21; /* creo que estaria interesante usar este verde para los textos en vex de negro*/
+
+            /* forms & tables */
+    --form-border: #81844D;
+    --form-back: #D8DBB5;
+    --form-placeholder: #737373;
+
+/* fonts */
+    --title-font: "Kanit", sans-serif;
+    --primary-font: "Comfortaa", sans-serif;
+    --secondary-font: "Nunito", sans-serif;
+}

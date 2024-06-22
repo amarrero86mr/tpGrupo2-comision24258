@@ -1,0 +1,33 @@
+.form-login {
+  display: grid;
+  grid-template-columns: repeat(1, minmax(0, 500px));
+  gap: 2em;
+  justify-content: center;
+}
+
+.form-label {
+  padding-left: 2vw;
+}
+.form-login>div:nth-child(3) {
+  display: flex;
+  justify-content: center;
+}
+
+.button{
+  width: 180px;
+}
+.form-link>a {
+  text-decoration: none;
+  font-family: inherit;
+  color: inherit;
+  display: inline-block;
+  font-size: 1.8em;
+}
+
+span {
+  text-decoration: underline;
+  font-family: inherit;
+  color: inherit;
+  color: var(--primary-solid);
+  display: inline-block;
+}

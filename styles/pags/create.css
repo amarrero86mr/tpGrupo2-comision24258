@@ -1,0 +1,48 @@
+.nombre_prod{
+    grid-column: span 2;
+    grid-row: 1;
+}
+.marca_prod{
+    grid-column: 1;
+    grid-row: 2;
+}
+.tipo_prod{
+    margin: auto 0;
+    grid-column: 2;
+    grid-row: 2;
+}
+.descripcion_prod{
+    grid-column: span 2;
+    grid-row: 3;
+}
+.codigo_prod{
+    grid-column: 1;
+    grid-row: 4;
+}
+.stock_prod{
+    grid-column: 2;
+    grid-row: 4;
+}
+.promocion_prod{
+    margin: auto 0;
+    grid-column: 1;
+    grid-row: 5;
+}
+.precio_prod{
+    grid-column: 2;
+    grid-row: 5;
+}
+.subir_imgprod{
+    grid-column: span 2;
+    grid-row: 6;
+    display: flex;
+    align-items: center;
+    gap: 2vw;
+    margin: 0 auto;
+}
+.button__section{
+    margin-top: 2vw;
+    display: flex;
+    gap: 5vw;
+    justify-content: center;
+}

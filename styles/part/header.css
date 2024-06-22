@@ -1,0 +1,137 @@
+header {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: var(--secondary-font);
+    font-weight: 800;
+    font-size: 2.7em;
+}
+
+nav {
+    background-image: linear-gradient( var(--brown-mate-solid), var(--green-yerba-solid));
+    display: flex;
+    padding: 1vw 2vw;
+    justify-content: space-between;
+    align-items: center;
+}
+.navbar__menu-list {
+    justify-items: center;
+}
+
+.navbar__menu-item {
+    display: inline-block;
+    padding: 0.7vw;
+    border-radius: 0.7vw;
+    transition: all 0.4s ease;
+}
+
+.navbar__menu-item:hover {
+    background-color: var(--secondary-07);
+}
+
+/* sub-menu */
+
+.submenu {
+    display: none;
+    background-color: var(--green-yerba-07);
+    border-radius: 0.8vw;
+    width: 15vw;
+    position:fixed;
+    margin-top: 8px;
+    transition: all 1s ease;
+}
+
+.con__submenu:hover .submenu{
+    display: block;
+    animation: aparecer 0.7s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+.submenu__items{
+    padding: 0.3em;
+    align-self: center;
+    border-radius: 0.5em;
+    transition: all 0.4s ease;
+}
+.submenu__items:hover {
+    background-color: var(--secondary-07);
+}
+
+.navbar__logo>a>img {
+    width: 150px;
+}
+
+.img-menu-responsive{
+    width: 40px;
+}
+.con__submenu>img {
+    width: 20px;
+}
+.navbar__menu-item>a>img {
+    width: 40px;
+}
+.section__redes>li>a>img {
+    height: 45px;
+}
+
+@keyframes aparecer {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* menu responsive falta los @media */
+.checkbtn-menu-responsive {
+    display: none;
+    padding: 0.5em 0.8em;
+    border-radius: 2em;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.checkbtn-menu-responsive{
+    cursor: pointer;
+    align-content: center;
+}
+.checkbtn-menu-responsive:hover{
+    background-color: var(--secondary-07);
+    
+}
+
+@media (max-width: 768px) {
+    header {
+        font-weight: 700;
+        font-size: 2em;
+    }
+
+    .checkbtn-menu-responsive {
+        display: block;
+    }
+    
+    .navbar {
+        align-items: center;
+    }
+
+    .navbar__menu-list{
+        display: none;
+        margin: 0;
+        padding: 0.5em;
+        background-color: var(--green-yerba-07);
+        flex-direction: column;
+        position: absolute;
+        right: 0;
+        top: 8em;
+        align-items: center;
+    }
+
+    #check-menu-responsive:checked + .navbar__menu-list {
+        display: flex;
+    }
+
+    .submenu {
+        display: inline;
+        position:static;
+        margin-top: 0;
+        animation: none;        
+    }
+}

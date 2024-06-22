@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NOSOTROS | tradicion criolla</title>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/pags/cart.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="../imgs/icons/favicon-32x32.png">
+</head>
+<body class="container">
+    <header>
+        <nav class="navbar">
+            <div class="navbar__logo">
+                <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png" alt="Logo de Tradición Criolla"></a>
+            </div>
+            <!-- el siguiente div esta oculto para hacerlo visible en la etapa responsive -->
+            <div class="navbar__menu">
+                <label for="check-menu-responsive" class="checkbtn-menu-responsive">
+                    <img class="img-menu-responsive" src="../imgs/icons/bars-solid.svg" alt="favicon de menu">
+                </label>
+                <input hidden type="checkbox" id="check-menu-responsive">
+            
+                <ul class="navbar__menu-list">
+                    <li class="navbar__menu-item con__submenu"><a href="../pages/mercado.html">MERCADO</a> <img src="../imgs/icons/chevron-down-solid.svg" alt="icono de flecha abajo">
+                        <ul class="submenu">
+                            <li class="submenu__items">
+                                <a href="../pages/mercado.html" class="submenu__link">Yerbas</a>
+                            </li>
+                            <li class="submenu__items">
+                                <a href="../pages/mercado.html" class="submenu__link">Mates</a>
+                            </li>
+                            <li class="submenu__items">
+                                <a href="../pages/mercado.html" class="submenu__link">Termos</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="navbar__menu-item"><a href="../pages/contacto.html">CONTACTO</a></li>
+                    <li class="navbar__menu-item"><a href="../pages/login.html">INGRESAR</a></li>
+                    <li class="navbar__menu-item"><a href="../pages/cart.html"><img src="../imgs/icons/cart-shopping-solid.svg" alt="favicon de carrito de compras"></a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main class="">
+        <section>
+            <h1 class="hero__title">CARRO DE COMPRAS</h1>
+            
+            <div class="productos_cart">
+                <div class="produto_revisar">
+                    <div class="cart_producto-imagen">
+                        <img src="../imgs/yerbas/5-ym-pipore.png" alt="paquete de yerba pipore por 1kg">
+                    </div>
+                    <div class="cart_producto-descripcion">
+                        <p class="producto-marca">PIPORE</p>
+                        <p class="producto-descripcion">Yerba Piporé Tradicional - 1 kg</p>
+                    </div>
+                    <div class="cart_producto-cant">
+                        <div class="masmenos">
+                            <button class="btn_masmenos cart_btn_menos" value="-1">-</button>
+                            <input type="number" min="0" class="inp_masmenos" value="3">
+                            <button class="btn_masmenos cart_btn_mas" value="+1">+</button>
+                        </div>
+                        <button class="cart_cant_enliminar">ELIMINAR</button>
+                    </div>
+                    <div class="cart_producto-subtotal">
+                        <p class="subtotal precio_subtotal"></p>
+                    </div>
+                </div>
+            
+                <div class="produto_revisar">
+                    <div class="cart_producto-imagen">
+                        <img src="../imgs/bombillas/1-bombilla-picoloro.png" alt="Bombilla de acero inoxidable filtro pala picoloro">
+                    </div>
+                    <div class="cart_producto-descripcion">
+                        <p class="producto-marca">MATESUR</p>
+                        <p class="producto-descripcion">Bombilla de acero inoxidable filtro pala picoloro</p>
+                    </div>
+                    <div class="cart_producto-cant">
+                        <div class="masmenos">
+                            <button class="btn_masmenos cart_btn_menos" value="-1">-</button>
+                            <input type="number" min="0" class="inp_masmenos" value="3">
+                            <button class="btn_masmenos cart_btn_mas" value="+1">+</button>
+                        </div>
+                        <button class="cart_cant_enliminar">ELIMINAR</button>
+                    </div>
+                    <div class="cart_producto-subtotal">
+                        <p class="subtotal precio_subtotal"></p>
+                    </div>
+                </div>
+
+                
+            </div>
+
+            <div class="panel_cart">
+
+                <h2>RESUMEN</h2>
+                <div class="panel_contenido">
+                    <div>
+                        <p>Productos:</p>
+                        <p id="cart_prod_total"></p>
+                    </div>
+                    <div>
+                        <p>Envio (C.A. a cargo del comprador) </p>
+                        <p>$ 0,00</p>
+                    </div>
+                    <div class="cart_total">
+                        <p>TOTAL</p>
+                        <p id="cart_total_importe"></p>
+                    </div>
+                    <button class="btn cart_btn_comprar">Continuar Compra</button>
+                </div>
+            </div>
+
+        </section>
+        
+    </main>
+    <footer>
+        <div>
+            <ul>
+                <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                <li><a href="../pages/mercado.html">MERCADO</a></li>
+                <li><a href="../pages/registro.html">REGISTRARSE</a></li>
+                <li><a href="../pages/nosotros.html">NOSOTROS</a></li>
+            </ul>
+            <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png" alt="logo de tradicion criolla"></a>
+        </div>
+        <p>Derechos Registrados 2024 - tradición criolla®</p>
+    </footer>
+    <!-- esta seccion sera tomada desde un archivo js -->
+    <script src="../scripts/cart.js"></script>
+</body>
+</html>

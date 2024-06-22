@@ -1,0 +1,14 @@
+.container, 
+body {
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: var(--primary-font);
+}
+
+.hero__title {
+    margin: 3vw;
+    font-family: var(--title-font);
+    font-size: 3em;
+    text-decoration: underline 3px var(--primary-solid);
+    text-underline-position: under;
+}

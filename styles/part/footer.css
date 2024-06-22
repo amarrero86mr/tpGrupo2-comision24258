@@ -1,0 +1,39 @@
+footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-image: linear-gradient( var(--green-yerba-solid),  var(--brown-mate-solid));
+    display: flex;
+    padding: 0 0.8vw ;
+    margin-top: 1vw;
+    flex-direction: column;
+}
+footer>p {
+    text-align: center;
+    margin-bottom: 0.6vw;
+    font-size: 1.5em;
+    font-weight: 500;
+}
+footer>div {
+    display: flex;
+    padding: 1.5vw;
+    padding-bottom: 0.5vw;
+    justify-content: space-between;
+}
+footer>div>ul {
+    display: flex;
+    flex-direction: column;
+    margin: auto 0;
+    padding-left: 1vw;
+    gap: 0.3vw;
+}
+footer>div>a{
+    margin: auto 0;
+}
+footer>div>a>img{
+    width: 150px;
+}
+footer>div>ul>li {
+    font-family: var(--secondary-font);
+    font-weight: 800;
+    font-size: 2.4em;
+}

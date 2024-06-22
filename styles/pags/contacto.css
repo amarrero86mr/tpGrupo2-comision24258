@@ -1,0 +1,59 @@
+.hero>p,
+.textos-contacto>p,
+.contacto>li>p {
+    font-family: var(--primary-font);
+    font-size: 2.1em;
+    font-weight: 500;
+    margin: 3vw;
+}
+
+/* posicionamos los elementos del formulario*/
+.form__dato_motcontactarnos {
+    grid-column: span 2;
+    grid-row: 3;
+}
+
+.mot_desplegable {
+    grid-column: span 2;
+    grid-row: 4;
+    width: 40%;
+    margin: 1vw auto;
+}
+
+.segundo_mot_deplegable {
+    grid-column: span 2;
+    grid-row: 5;
+    display: flex;
+    align-items: center;
+}
+
+.form>.form_mensaje {
+    grid-column: span 2;
+    grid-row: 6;
+}
+
+.warnings {
+    grid-column: 1;
+    grid-row: 7;
+    color: rgb(255, 57, 57);
+}
+
+.button_send {
+    grid-column: 2;
+    grid-row: 7;
+    justify-self: end;
+}
+
+.contacto>li {
+    display: flex;
+}
+
+.contacto>li>img {
+    width: 4em;
+}
+
+.section__redes {
+    display: flex;
+    justify-content: center;
+    gap: 3em;
+}

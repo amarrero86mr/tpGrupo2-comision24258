@@ -1,0 +1,55 @@
+.hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.hero_search {
+    display: flex;
+    margin-right: 2vw;
+    gap: 2vw;
+    align-items: center;
+}
+
+.button_search{
+    width: 4vw;
+    height: 4vw;
+}
+.button_search>img{
+    width: 4vw;
+    height: 4vw;
+}
+
+table{
+    margin: 0 auto;
+    width: 95%;
+    font-size: 1.6em;
+    text-align: left;
+    border-spacing: 0.6vw;    
+}
+
+th>a {
+    display: flex;
+    align-items: center;
+    width: 2vw;
+    height: 2vw;
+}
+tr{
+    text-indent: 1em;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: var(--form-back);
+}
+tbody tr:nth-child(even) {
+    background-color: #dcdcdc;
+}
+
+tr th:last-child{
+    display: flex;
+}
+
+td>a>img{
+    width: 2vw;
+    height: 2vw;
+    margin: auto 0.7vw;
+}
