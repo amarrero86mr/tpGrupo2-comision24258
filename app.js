@@ -12,7 +12,7 @@ app.use('/usuarios', userRoutes);
 
 app.get('/', (req,res) => 
     {
-        res.status(200).sendFile(__dirname + '/index.html');
+        res.status(200).send('esto es el index.html');
     });
 
 const Port = 3306;

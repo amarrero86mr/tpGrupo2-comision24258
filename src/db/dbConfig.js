@@ -5,8 +5,7 @@ const coneccionBD = mysql.createConnection({
   host:'bjhtasgcrg335gemekbd-mysql.services.clever-cloud.com',
   user:'u8gcdzylz1a1c0m4',
   password:'GJZOWkt16dmUVmjXKjp5',
-  name:'bjhtasgcrg335gemekbd',
-  port: 3306
+  name:'bjhtasgcrg335gemekbd'
 });
 
 // const coneccionBD = mysql.createConnection({

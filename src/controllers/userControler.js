@@ -5,6 +5,7 @@ const getAllUser = (req, res) => {
     const sql = 'SELECT * FROM usuario_tbl';
     coneccionBD.query(sql, (err, results) => {
         if (err) {
+            console.log(err)
             throw err
         };
 
