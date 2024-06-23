@@ -13,7 +13,18 @@ const getAllUser = (req, res) => {
     });
 };
 
-module.exports = getAllUser;
+const getAllUserByID = (req, res) => {
+    const {id} = req.params;
+    const sql = 'SELECT * FROM usuario_tbl WHERE id_usuario = ?'
+    
+    coneccionBD.query(sql, [id] ,(err, result) => {
+        if(err) throw err;
+
+        res.json(result);
+    });
+};
+
+module.exports = {getAllUser, getAllUserByID}
 
 // exports.getAllUser = async (req, res) => {
 //     try {
