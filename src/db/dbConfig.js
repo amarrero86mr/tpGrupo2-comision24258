@@ -8,11 +8,10 @@ const coneccionBD = mysql.createPool({
   database: process.env.DB_NAME,
   port: 3306,
   waitForConnections: true,
-  connectionLimit: 10,
-  queueLimit: 0
+  connectionLimit: 5,
+  queueLimit: 0,
 });
 
-// Verificar la conexión antes de exportar el pool
 coneccionBD.getConnection((err, connection) => {
   if (err) {
     console.error('Error de conexión con la base de datos:', err);

@@ -12,6 +12,7 @@ const getAllUser = (req, res) => {
         res.json(results);
     });
 };
+
 // metodo get solicita a la db un usuario por parametro (id)
 const getAllUserByID = (req, res) => {
     const {id} = req.params;
@@ -19,8 +20,12 @@ const getAllUserByID = (req, res) => {
     
     coneccionBD.query(sql, [id] ,(err, result) => {
         if(err) throw err;
-
+        if(result == ''){
+            res.send({'usuario':'no encontrado'});
+            console.log(result)
+        } else {
         res.json(result);
+        }
     });
 };
 
