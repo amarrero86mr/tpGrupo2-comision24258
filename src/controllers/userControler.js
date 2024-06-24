@@ -59,15 +59,31 @@ const putEditUser = (req, res) => {
             throw err;
         } else {
         res.json({
-            mensaje : "Usuario EDITADO con EXITO",
-            idUsuario : id
+            mensaje : "Usuario EDITADO con EXITO"
         });
         }
     });
 };
 
+const deleteUserByID = (req, res) => {
+    const {id} = req.params;
+    const sql = 'DELETE FROM usuario_tbl WHERE id_usuario = ?'
+    
+    coneccionBD.query(sql, [id] ,(err, result) => {
+        if(err) throw err;
+        if(result.affectedRows == 0){
+            res.send({'usuario':'no encontrado'});
+            console.log(result)
+        } else {
+        res.json({
+            result, 
+            mensaje: "usuario Eliminado"
+        });
+        }
+    });
+};
 
-module.exports = {getAllUser, getAllUserByID, postNewUser, putEditUser}
+module.exports = {getAllUser, getAllUserByID, postNewUser, putEditUser, deleteUserByID}
 
 // exports.getAllUser = async (req, res) => {
 //     try {
