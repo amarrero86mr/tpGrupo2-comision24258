@@ -48,10 +48,26 @@ const postNewUser = (req,res) => {
     });    
 };
 
+const putEditUser = (req, res) => {
+    const {id} = req.params;
+    const {admin_user, nombre, apellido, tipo_documento, num_documento, genero, tel, email, pass } = req.body;
+    const sql = 'UPDATE usuario_tbl SET admin_user=?, nombre=?, apellido=?, tipo_documento=?, num_documento=?, genero=?, tel=?, email=?, pass=? WHERE id_usuario=?'
+    
+    coneccionBD.query(sql, [admin_user, nombre, apellido, tipo_documento, num_documento, genero, tel, email, pass, id], (err, result) => {
+        if(err){
+            console.error('Error editing user:', err);
+            throw err;
+        } else {
+        res.json({
+            mensaje : "Usuario EDITADO con EXITO",
+            idUsuario : id
+        });
+        }
+    });
+};
 
 
-
-module.exports = {getAllUser, getAllUserByID, postNewUser}
+module.exports = {getAllUser, getAllUserByID, postNewUser, putEditUser}
 
 // exports.getAllUser = async (req, res) => {
 //     try {
