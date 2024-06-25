@@ -48,6 +48,8 @@ const postNewUser = (req,res) => {
     });    
 };
 
+
+
 const putEditUser = (req, res) => {
     const {id} = req.params;
     const {admin_user, nombre, apellido, tipo_documento, num_documento, genero, tel, email, pass } = req.body;
@@ -82,6 +84,8 @@ const deleteUserByID = (req, res) => {
         }
     });
 };
+
+
 
 module.exports = {getAllUser, getAllUserByID, postNewUser, putEditUser, deleteUserByID}
 
