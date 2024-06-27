@@ -78,7 +78,6 @@ const deleteUserByID = (req, res) => {
             console.log(result)
         } else {
         res.json({
-            result, 
             mensaje: "usuario Eliminado"
         });
         }
