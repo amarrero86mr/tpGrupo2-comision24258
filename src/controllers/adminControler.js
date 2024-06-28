@@ -9,9 +9,25 @@ const getAllItems = (req, res) => {
         };
 
         // res.json(results);
-        console.log(results);
-        return res.render('admin', (dataItems = results ));
+        res.render('admin', (dataItems = results ));
+        console.log(dataItem);
     });
 };
 
-module.exports = getAllItems
+const getItemById = (req, res) => {
+    const {id} = req.params;
+    const sql = 'SELECT * FROM item_tbl WHERE id_item = ?'
+    
+    coneccionBD.query(sql, [id] ,(err, result) => {
+        if(err) throw err;
+        if(result == ''){
+            res.send({'item':'no encontrado'});
+            console.log(result)
+        } else {
+            console.log(result);
+            return res.render('edit', (dataItem = result[0]));
+        }
+    });
+};
+
+module.exports = { getAllItems, getItemById};

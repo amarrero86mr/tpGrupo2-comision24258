@@ -1,16 +1,16 @@
-const coneccionBD = require('../db/dbConfig.js');
+const coneccionBD = require('../db/dbConfig');
 
 // metodo get solicita a la db todos los usuarios
-const getAllUser = (req, res) => {
+const getAllUser = async (req, res) => {
     const sql = 'SELECT * FROM usuario_tbl';
-    coneccionBD.query(sql, (err, results) => {
-        if (err) {
-            console.log(err)
-            throw err
-        };
-
-        res.json(results);
-    });
+    try {
+        const connection = await coneccionBD.getConnection()
+        const [rows] = await connection.query(sql);
+        connection.release();
+        res.json(rows);
+    } catch {
+        res.status(500).send('Internal server error');
+    }
 };
 
 // metodo get solicita a la db un usuario por parametro (id)
@@ -63,6 +63,7 @@ const putEditUser = (req, res) => {
         res.json({
             mensaje : "Usuario EDITADO con EXITO"
         });
+        console.log(result);
         }
     });
 };
