@@ -2,7 +2,7 @@ const coneccionBD = require('../db/dbConfig.js');
 
 // metodo get asincronico con renderizacion ejs
 const getAllItems = async (req, res) => { // al metodo get... le asignamos una funcion asincronica
-    const sql = 'SELECT * FROM item_tbl';
+    const sql = 'SELECT A.id_item, A.cod_item, A.nombre_item, C.desc_categoria, B.nombre_marca, A.stock, A.precio FROM item_tbl A LEFT OUTER JOIN marca_tbl B ON A.id_marca = B.id_marca LEFT OUTER JOIN categoria_tbl C ON A.cod_categoria = C.cod_categoria';
 
     try {
         const connection = await coneccionBD.getConnection(); // asignamos por la espera de la coneccion
@@ -10,7 +10,6 @@ const getAllItems = async (req, res) => { // al metodo get... le asignamos una f
         
         connection.release(); //liveramos el pool de coneccion
         res.render('admin', {dataItems: rows}); // respondemos renderizando admin.ejs a la vez que le pasamos dataItems como propiedad de render
-        
     
     } catch (err){
         // tomamos el error y devolvemos una respuesta por pantalla y el error por consola
@@ -25,7 +24,7 @@ const getAllItems = async (req, res) => { // al metodo get... le asignamos una f
 // metodo get por id asincronico con renderizacion edit.ejs
 const getItemById = async (req, res) => {
     const {id} = req.params;
-    const sql = 'SELECT * FROM item_tbl WHERE id_item = ?'
+    const sql = 'SELECT A.id_item, A.cod_item, A.cod_categoria, C.desc_categoria, B.nombre_marca, A.nombre_item, A.descripcion_item, A.stock, A.precio, A.descuento, A.imgurl_1, A.imgurl_2 FROM item_tbl A LEFT OUTER JOIN marca_tbl B ON A.id_marca = B.id_marca LEFT OUTER JOIN categoria_tbl C ON A.cod_categoria = C.cod_categoria WHERE A.id_item = ?';
     
     try {
         const connection = await coneccionBD.getConnection(); // asignamos por la espera de la coneccion
@@ -36,6 +35,8 @@ const getItemById = async (req, res) => {
         } else {
             connection.release(); //liveramos el pool de coneccion
             res.render('edit', {dataItem: rows[0]}); // respondemos renderizando admin.ejs a la vez que le pasamos dataItem como propiedad de render
+            console.log(rows);
+
         }
     
     } catch (err){

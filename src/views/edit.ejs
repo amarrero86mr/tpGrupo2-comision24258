@@ -5,24 +5,23 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>EDITAR | tradicion criolla</title>
-        <link rel="stylesheet" href="../styles/index.css">
-        <link rel="stylesheet" href="../styles/pags/create.css">
-        <link rel="stylesheet" href="../styles/pags/edit.css">
-        <link rel="icon" type="image/png" sizes="32x32" href="../imgs/icons/favicon-32x32.png">
+        <link rel="stylesheet" href="../../styles/index.css">
+        <link rel="stylesheet" href="../../styles/pags/create.css">
+        <link rel="stylesheet" href="../../styles/pags/edit.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../imgs/icons/favicon-32x32.png">
     </head>
 
     <body class="container">
         <header>
             <nav class="navbar">
                 <div class="navbar__logo">
-                    <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                    <a href="../index.html"><img src="../../imgs/logo/Designer__6_-derecho-removebg-preview.png"
                             alt="Logo de Tradición Criolla"></a>
                 </div>
                 <!-- el siguiente div esta oculto para hacerlo visible en la etapa responsive -->
                 <div class="navbar__menu">
                     <label for="check-menu-responsive" class="checkbtn-menu-responsive">
-                        <img class="img-menu-responsive" src="../imgs/icons/bars-solid.svg"
-                            alt="favicon de menu">
+                        <img class="img-menu-responsive" src="../imgs/icons/bars-solid.svg" alt="favicon de menu">
                     </label>
                     <input hidden type="checkbox" id="check-menu-responsive">
                     <ul class="navbar__menu-list">
@@ -41,81 +40,91 @@
                 <h1 class="hero__title">EDITAR PRODUCTO</h1>
                 <!-- <form action="https://formspree.io/f/xrgndeyq" method="PUT"> --> <!-- cambiar clase -->
                 <form class="form" id="form_edit">
+
                     <div class="nombre_prod">
-                        <input type="text" name="nombre_producto" id="nombre_prod" value="<%= dataItem.nombre_item %>">
-                      </div>
-                      <div class="marca_prod">
-                        <input type="text" name="marca_producto" id="marca_producto" value="<%= dataItem.id_marca %>">
-                      </div>
-                    <div class="nombre_prod">
-                            <input type="text" name="nombre_producto" id="nombre_prod" placeholder="<%= dataItem.nombre_item %>"> 
-                        </div>
-                         <div class="marca_prod"> 
-                            <input type="text" name="marca_producto" id="marca_producto" placeholder="<%= dataItem.id_marca %>">
-                        </div>
-                        <div class="tipo_prod"> <!-- cambiar clases -->
-                            <select name="tipo_producto" id="tipo_prod">
-                                <option value="" selected="" disabled="">Categoría</option>
-                                <option value="accesorio">Accesirio</option>
-                                <option value="bolso">Bolso</option>
-                                <option value="bombilla">Bombilla</option>
-                                <option value="mate">Mate</option>
-                                <option value="yerba">Yerba</option>
-                            </select>
-                        </div>
-                        <div class="descripcion_prod">
-                            <textarea name="descripcion" id="descripcion_prod" cols="30" rows="6" placeholder="Yerba mate que combina la calidad única de la yerba Canarias con un equilibrio de hierbas: Toronjil, Mburucuyá, Menta y Tilo. Paquete por 1 kg."></textarea>
-                        </div>
+                        <input type="text" name="nombre_producto" id="nombre_prod"
+                            placeholder="<%= dataItem.nombre_item %>">
+                    </div>
+                    <div class="marca_prod">
+                        <input type="text" name="marca_producto" id="marca_producto"
+                            placeholder="<%= dataItem.nombre_marca %>">
+                    </div>
+                    <div class="tipo_prod"> <!-- cambiar clases -->
+                        <select name="tipo_producto" id="tipo_prod">
+                            <option value="<%= dataItem.cod_categoria %>">
+                                <%= dataItem.desc_categoria %>
+                            </option>
+                            <option value="1">Accesirio</option>
+                            <option value="2">Bolso</option>
+                            <option value="3">Bombilla</option>
+                            <option value="4">Mate</option>
+                            <option value="5">Termo</option>
+                            <option value="6">Yerba</option>
+                        </select>
+                    </div>
+                    <div class="descripcion_prod">
+                        <textarea name="descripcion" id="descripcion_prod" cols="30" rows="6"
+                            placeholder="<%= dataItem.descripcion_item %>"></textarea>
+                    </div>
 
-                        <div class="codigo_prod"> 
-                            <label for="codigo_prod">CODIGO:</label>
-                            <input type="text" name="codigo" id="codigo_prod" placeholder="YMC0102">
-                        </div>
-                        <div class="stock_prod"> 
-                            <label for="stock_prod">STOCK:</label>
-                            <input type="number" name="stock" id="stock_prod" placeholder="">
-                        </div>
+                    <div class="codigo_prod">
+                        <label for="codigo_prod">CODIGO:</label>
+                        <input type="text" name="codigo" id="codigo_prod" placeholder="<%= dataItem.cod_item %>">
+                    </div>
+                    <div class="stock_prod">
+                        <label for="stock_prod">STOCK:</label>
+                        <input type="number" name="stock" id="stock_prod" placeholder="<%= dataItem.stock %>">
+                    </div>
 
-                        <div class="promocion_prod"> 
-                            <label for="promocion_prod">PROMOCION:</label>
-                            <select name="promocion" id="promocion_prod">
-                                <option value="" selected="" disabled="">Promocion / NUEVO</option>
-                                <option value="nuevo">Nuevo</option>
-                                <option value="promo1">10% de Descuento</option>
-                                <option value="promo2">20% de Descuento</option>
-                                <option value="promo3">25% de Descuento</option>
-                                <option value="promo4">30% de Descuento</option>
-                            </select>
+                    <div class="promocion_prod">
+                        <label for="promocion_prod">PROMOCION:</label>
+                        <select name="promocion" id="promocion_prod">
+                            <option value="<%= dataItem.descuento %>" selected="" disabled="">
+                                <%= dataItem.descuento %>% de Descuento
+                            </option>
+                            <option value="nuevo">Nuevo</option>
+                            <option value="10">10% de Descuento</option>
+                            <option value="20">20% de Descuento</option>
+                            <option value="25">25% de Descuento</option>
+                            <option value="30">30% de Descuento</option>
+                        </select>
+                    </div>
+
+                    <div class="precio_prod"> <!-- cambiar clases -->
+                        <label for="precio_prod">PRECIO:</label>
+                        <input type="number" name="precio" min="0" id="precio_prod"
+                            placeholder="<%= dataItem.precio %>">
+                    </div>
+
+                    <div class="producto_img">
+                        <div class="img_slot">
+                            <a href="#"><img src="../../imgs/icons/trash-can-solid.svg" alt=""></a>
+                            <!-- metodo a DELETE -->
+                            <img src="<%= dataItem.imgurl_1 %>" alt="<%= dataItem.descripcion_item %>">
                         </div>
-
-                        <div class="precio_prod"> <!-- cambiar clases -->
-                            <label for="precio_prod">PRECIO:</label>
-                            <input type="number" name="precio" min="0" id="precio_prod" placeholder="Precio">
+                        <div class="img_slot">
+                            <a href="#"><img src="../../imgs/icons/trash-can-solid.svg" alt=""></a>
+                            <!-- metodo a DELETE --><img src="<%= dataItem.imgurl_2 %>"
+                                alt="<%= dataItem.descripcion_item %>">
                         </div>
-
-                        <div class="producto_img">
-                            <div class="img_slot">
-                                <a href="#"><img src="../imgs/icons/trash-can-solid.svg" alt=""></a> <!-- metodo a DELETE -->
-                                <img src="../imgs/yerbas/4-ym-canarias-serena.png" alt="paquete de yerba canarias serena por 1kg">
-                            </div>
-                            <div class="img_slot"><a href="#"><img src="../imgs/icons/trash-can-solid.svg" alt=""></a> <!-- metodo a DELETE --></div>
-                            <div class="img_slot"><a href="#"><img src="../imgs/icons/trash-can-solid.svg" alt=""></a> <!-- metodo a DELETE --></div>
-                        </div>
+                        <div class="img_slot"><a href="#"><img src="../../imgs/icons/trash-can-solid.svg" alt=""></a>
+                            <!-- metodo a DELETE --></div>
+                    </div>
 
 
-                        <div class="subir_imgprod">
-                            <label for="subir_imgprod">IMAGENES:
-                            </label>
-                            <input type="file" id="subir_imgprod" accept=".png,.jpg">
-                        </div>
+                    <div class="subir_imgprod">
+                        <label for="subir_imgprod">IMAGENES:
+                        </label>
+                        <input type="file" id="subir_imgprod" accept=".png,.jpg">
+                    </div>
 
 
-                        <div class="button__section">
-                            <button class="button_send" type="submit">EDITAR</button>
-                            
-                            <button class="button_borrar" type="reset">CANCELAR</button> <!-- metodo GET a ADMIN -->
-                        </div>
-                        <p class="warnings" id="warnings"></p>
+                    <div class="button__section">
+                        <button class="button_send" type="submit">EDITAR</button>
+
+                        <button class="button_borrar" type="reset">CANCELAR</button> <!-- metodo GET a ADMIN -->
+                    </div>
+                    <p class="warnings" id="warnings"></p>
                 </form>
             </section>
         </main>
@@ -135,4 +144,5 @@
         </footer>
         <!-- <script src="../scripts/registro.js"></script> -->
     </body>
+
 </html>
