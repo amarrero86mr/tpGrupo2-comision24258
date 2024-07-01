@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NOSOTROS | tradicion criolla</title>
+        <link rel="stylesheet" href="../styles/index.css">
+        <link rel="stylesheet" href="../styles/pags/registro.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="../imgs/icons/favicon-32x32.png">
+    </head>
+
+    <body class="container">
+        <header>
+            <nav class="navbar">
+                <div class="navbar__logo">
+                    <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                            alt="Logo de Tradición Criolla"></a>
+                </div>
+                <!-- el siguiente div esta oculto para hacerlo visible en la etapa responsive -->
+                <div class="navbar__menu">
+                    <label for="check-menu-responsive" class="checkbtn-menu-responsive">
+                        <img class="img-menu-responsive" src="../imgs/icons/bars-solid.svg" alt="favicon de menu">
+                    </label>
+                    <input hidden type="checkbox" id="check-menu-responsive">
+
+                    <ul class="navbar__menu-list">
+                        <li class="navbar__menu-item con__submenu"><a href="../pages/mercado.html">MERCADO</a> <img
+                                src="../imgs/icons/chevron-down-solid.svg" alt="icono de flecha abajo">
+                            <ul class="submenu">
+                                <li class="submenu__items">
+                                    <a href="../pages/mercado.html" class="submenu__link">Yerbas</a>
+                                </li>
+                                <li class="submenu__items">
+                                    <a href="../pages/mercado.html" class="submenu__link">Mates</a>
+                                </li>
+                                <li class="submenu__items">
+                                    <a href="../pages/mercado.html" class="submenu__link">Termos</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="navbar__menu-item"><a href="./contacto.html">CONTACTO</a></li>
+                        <li class="navbar__menu-item"><a href="./login.html">INGRESAR</a></li>
+                        <li class="navbar__menu-item"><a href="./cart.html"><img
+                                    src="../imgs/icons/cart-shopping-solid.svg" alt="favicon de carrito de compras"></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1 class="hero__title">REGISTRO</h1>
+                <p>Registrate y fomá parte de la familia de tradicion criolla</p>
+            </section>
+            <section>
+                <h2 class="hero__title title__secondary">Datos de Contacto</h2>
+                <!-- faltan los patterns t los requiereds -->
+                <!-- <form action="https://formspree.io/f/xrgndeyq" method="POST"> -->
+                <form action="/register" method="post" class="form" id="form">
+                    <!-- <fieldset class="form_primerseccion"> -->
+                    <div class="form__name">
+                        <input type="text" name="nombre" id="nombre" placeholder="Nombres">
+                    </div>
+                    <div class="form__apellido">
+                        <input type="text" name="apellido" id="apellido" placeholder="Apellidos">
+                    </div>
+                    <div class="form__tipodocumento">
+                        <select name="tipo_documento" id="tipo_documento-select">
+                            <option value="" selected="" disabled="">Tipo de Documento</option>
+                            <option value="DNI">D.N.I.</option>
+                            <option value="CI">C.I</option>
+                            <option value="CUIL">CUIL</option>
+                            <option value="CUIT">CUIT</option>
+                        </select>
+                    </div>
+                    <div class="Form__documento">
+                        <input type="text" name="num_documento" id="n_documento" placeholder="Nº de Documento">
+                    </div>
+                    <div class="form_radiothree form__Genero">
+                        <p>Genero:</p>
+                        <div>
+                            <label for="genero_otro">
+                                <input type="radio" name="genero" id="genero_otro" value="otro" checked>
+                                Otro</label>
+                            <label for="genero_femenino">
+                                <input type="radio" name="genero" id="genero_femenino" value="femenino">
+                                Femenino</label>
+                            <label for="genero_masculino">
+                                <input type="radio" name="genero" id="genero_masculino" value="masculino">
+                                Masculino</label>
+                        </div>
+                    </div>
+                    <div class="form__provincia">
+                        <select name="provincia" id="provincia-select">
+                            <option value="" selected="" disabled="">Provincia</option>
+                            <option value="buens_aires">Buenos Aires</option>
+                            <option value="caba">C.A.B.A.</option>
+                            <option value="catamarca">Catamarca</option>
+                            <option value="chaco">Chaco</option>
+                            <option value="chubut">Chubut</option>
+                            <option value="cordoba">Córdoba</option>
+                            <option value="corrientes">Corrientes</option>
+                            <option value="entre_rios">Entre Ríos</option>
+                            <option value="formosa">Formosa</option>
+                            <option value="jujuy">Jujuy</option>
+                            <option value="la_pampa">La Pampa</option>
+                            <option value="la_rioja">La Rioja</option>
+                            <option value="mendoza">Mendoza</option>
+                            <option value="misiones">Misiones</option>
+                            <option value="nuequen">Neuquén</option>
+                            <option value="rio_negro">Río Negro</option>
+                            <option value="salta">Salta</option>
+                            <option value="san_juan">San Juan</option>
+                            <option value="san_luis">San Luis</option>
+                            <option value="santa_cruz">Santa Cruz</option>
+                            <option value="santa_fe">Santa Fe</option>
+                            <option value="santiago_del_estero">Santiago del Estero</option>
+                            <option value="tierra_del_fuego">Tierra del Fuego</option>
+                            <option value="tucuman">Tucumán</option>
+                        </select>
+                    </div>
+                    <div class="form_ciudad">
+                        <input type="text" name="ciudad" id="ciudad-localidad" placeholder="Ciudad/Localidad">
+                    </div>
+                    <div class="form__calle">
+                        <input type="text" name="calle" id="calle" placeholder="Calle">
+                    </div>
+                    <div class="form__altura">
+                        <input type="number" name="altura" id="altura" placeholder="Altura">
+                    </div>
+                    <div class="form__depto">
+                        <input type="text" name="depto" id="depto" placeholder="Piso/Departamento">
+                    </div>
+                    <div class="form__cpostal">
+                        <input type="number" name="cpostal" id="cpostal" placeholder="Código Postal">
+                    </div>
+                    <!-- </fieldset> -->
+                    <!-- <fieldset class="form_segundaseccion"> -->
+                    <div class="form__telefono">
+                        <input type="number" name="telefono" id="telefono" placeholder="Teléfono">
+                    </div>
+
+                    <div class="form__email">
+                        <input type="email" name="email" id="email" placeholder="E-mail">
+                    </div>
+                    <div class="form__repit-email">
+                        <input type="email" name="re_email" id="re_email" placeholder="Repita su E-mail">
+                    </div>
+
+                    <div class="form__pass">
+                        <input type="password" name="pass" id="pass" placeholder="Contraseña">
+                    </div>
+                    <div class="form__repit-pass">
+                        <input type="password" name="re_pass" id="re_pass" placeholder="Repita su Contraseña">
+                    </div>
+
+                    <div class="form__acept">
+                        <input type="checkbox" id="acept_terminos">
+                        <label for="acept_terminos">ACEPTO LOS <a href="#">TERMINOS Y CONDICIONES</a></label>
+                    </div>
+                    <div class="button__section">
+                        <button class="button_send" type="submit">REGISTRARSE</button>
+
+                        <button class="button_borrar" type="reset">BORRAR</button>
+                    </div>
+                    <p class="warnings" id="warnings"></p>
+                </form>
+            </section>
+
+
+        </main>
+
+        <footer>
+            <div>
+                <ul>
+                    <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="../pages/mercado.html">MERCADO</a></li>
+                    <li><a href="../pages/registro.html">REGISTRARSE</a></li>
+                    <li><a href="../pages/nosotros.html">NOSOTROS</a></li>
+                </ul>
+                <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                        alt="logo de tradicion criolla"></a>
+            </div>
+            <p>Derechos Registrados 2024 - tradición criolla®</p>
+        </footer>
+        <script src="../scripts/registro.js"></script>
+    </body>
+
+</html>
