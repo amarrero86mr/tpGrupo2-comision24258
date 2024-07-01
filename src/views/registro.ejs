@@ -56,10 +56,9 @@
             </section>
             <section>
                 <h2 class="hero__title title__secondary">Datos de Contacto</h2>
-                <!-- faltan los patterns t los requiereds -->
-                <!-- <form action="https://formspree.io/f/xrgndeyq" method="POST"> -->
-                <form action="/register" method="post" class="form" id="form">
-                    <!-- <fieldset class="form_primerseccion"> -->
+
+                <form action="/registro" method="post" class="form" id="form">
+                    
                     <div class="form__name">
                         <input type="text" name="nombre" id="nombre" placeholder="Nombres">
                     </div>
@@ -122,7 +121,7 @@
                         </select>
                     </div>
                     <div class="form_ciudad">
-                        <input type="text" name="ciudad" id="ciudad-localidad" placeholder="Ciudad/Localidad">
+                        <input type="text" name="localidad" id="ciudad-localidad" placeholder="Ciudad/Localidad">
                     </div>
                     <div class="form__calle">
                         <input type="text" name="calle" id="calle" placeholder="Calle">
@@ -131,15 +130,14 @@
                         <input type="number" name="altura" id="altura" placeholder="Altura">
                     </div>
                     <div class="form__depto">
-                        <input type="text" name="depto" id="depto" placeholder="Piso/Departamento">
+                        <input type="text" name="piso_dpto" id="depto" placeholder="Piso/Departamento">
                     </div>
                     <div class="form__cpostal">
-                        <input type="number" name="cpostal" id="cpostal" placeholder="Código Postal">
+                        <input type="number" name="cod_postal" id="cpostal" placeholder="Código Postal">
                     </div>
-                    <!-- </fieldset> -->
-                    <!-- <fieldset class="form_segundaseccion"> -->
+
                     <div class="form__telefono">
-                        <input type="number" name="telefono" id="telefono" placeholder="Teléfono">
+                        <input type="number" name="tel" id="telefono" placeholder="Teléfono">
                     </div>
 
                     <div class="form__email">
@@ -185,7 +183,7 @@
             </div>
             <p>Derechos Registrados 2024 - tradición criolla®</p>
         </footer>
-        <script src="../scripts/registro.js"></script>
+        <script src="/public/scripts/registro.js"></script>
     </body>
 
 </html>
