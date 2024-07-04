@@ -39,7 +39,7 @@ const postNewUser = async (req,res) => {
 
     try {
         const connection = await coneccionBD.getConnection();
-        const rows = await coneccionBD.query(sql, [admin_user, nombre, apellido, tipo_documento, num_documento, genero, tel, email, pass])
+        const rows = await connection.query(sql, [admin_user, nombre, apellido, tipo_documento, num_documento, genero, tel, email, pass])
 
         if (!rows[0].affectedRows) {
             console.error('Error inserting user:');
@@ -55,45 +55,53 @@ const postNewUser = async (req,res) => {
     }
 };
 
-// falta cambiar a asincronico
 
-const putEditUser = (req, res) => {
+const putEditUser = async (req, res) => {
     const {id} = req.params;
     const {admin_user, nombre, apellido, tipo_documento, num_documento, genero, tel, email, pass } = req.body;
     const sql = 'UPDATE usuario_tbl SET admin_user=?, nombre=?, apellido=?, tipo_documento=?, num_documento=?, genero=?, tel=?, email=?, pass=? WHERE id_usuario=?'
-    
-    coneccionBD.query(sql, [admin_user, nombre, apellido, tipo_documento, num_documento, genero, tel, email, pass, id], (err, result) => {
-        if(err){
-            console.error('Error editing user:', err);
-            throw err;
-        } else {
-        res.json({
-            mensaje : "Usuario EDITADO con EXITO"
-        });
-        console.log(result);
-        }
-    });
+   
+    try {
+        
+        const connection = await coneccionBD.getConnection();
+        const [rows] = await connection.query(sql, [admin_user, nombre, apellido, tipo_documento, num_documento, genero, tel, email, pass, id]);
+            
+            res.json({
+                mensaje : "Usuario EDITADO con EXITO"
+            });
+            console.log(rows);
+            
+    } catch (err) {
+        res.status(500).send('Internal server error');
+        console.log(err);
+    }
 };
 
 
 // falta cambiar a asincronico
 
 
-const deleteUserByID = (req, res) => {
+const deleteUserByID = async (req, res) => {
     const {id} = req.params;
     const sql = 'DELETE FROM usuario_tbl WHERE id_usuario = ?'
     
-    coneccionBD.query(sql, [id] ,(err, result) => {
-        if(err) throw err;
-        if(result.affectedRows == 0){
+    try {
+    const connection = await coneccionBD.getConnection();
+    const [rows] = await connection.query(sql, [id] );
+        
+        if(rows.affectedRows == 0){
             res.send({'usuario':'no encontrado'});
-            console.log(result)
         } else {
         res.json({
             mensaje: "usuario Eliminado"
         });
         }
-    });
+        console.log(rows)
+    } catch (err) {
+        res.status(500).send('Internal server error');
+        console.log(err);
+    }
+
 };
 
 
