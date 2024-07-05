@@ -35,7 +35,6 @@ select {
     background-color: var(--form-back);
     padding: 5px 10px;
     border-radius: 10px;
-    text-transform: capitalize;
     width: calc(100% - 20px);
     font-size: 2em;
     border: solid 2px var(--form-border);
