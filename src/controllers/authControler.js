@@ -41,3 +41,6 @@ const register = async (req, res) =>{
         console.log(err);
     }
 };
+
+
+module.exports = { renderLogin, renderRegister, register };
