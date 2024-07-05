@@ -54,5 +54,33 @@ const register = async (req, res) =>{
     }
 };
 
+const login = async (req, res) => {
+    const { email, pass } = req.body;
+    const sql = 'SELECT * FROM usuario_tbl WHERE email = ?';
 
-module.exports = { renderLogin, renderRegister, register };
+    try {
+        const connection = await coneccionBD.getConnection();
+        
+        const [rows] = await connection.query(sql, [email]);
+        console.log(rows[0])
+        if (!rows[0].email){
+            return res.status(404).send('Usuario no existe, e-mail incorrecto o no registrado, si el problema persiste cominiquese con sistemas');
+        };
+
+        const passValido = bcrypt.compareSync(pass, rows[0].pass);
+
+        if (!passValido) {
+            return res.status(401).send('Contraseña incorrecta o invalida, intente nuevamente, si el problema persiste cominiquese con sistemas');
+        }
+
+        const token = jwt.sign({email: rows[0].email}, config.secretKey, { expiresIn: config.TokenExpiresIn });
+
+        res.status(200).send({auth: true, token});
+    } catch (err) {
+        res.status(500).send('Internal server error');
+        console.log('Error de loging: ', err);
+    }
+}
+
+
+module.exports = { renderLogin, renderRegister, register, login };
