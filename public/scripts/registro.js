@@ -9,7 +9,13 @@ document.getElementById('form').addEventListener('submit', async function(e) {
     let regextelefono = /^(?:(?:00)?549?)?0?(?:11|[2368]\d)(?:(?=\d{0,2}15)\d{2})??\d{8}$/g;
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,4})+$/;
     let regexpass = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*-]).{8,20}$/g;
+    
+    const parrafo = document.getElementById("warnings");
     parrafo.innerHTML = "";
+
+    const submitButton = document.querySelector('.button_send');
+    submitButton.disabled = true; // Deshabilitar el botón de envío
+
 
     // Validaciones campo a campo
     if (nombre.value.length < 2) {
@@ -99,9 +105,11 @@ document.getElementById('form').addEventListener('submit', async function(e) {
             });
 
             if (response.ok) {
-               console.log('validacion correcta')
+                parrafo.innerHTML = "Usuario registrado correctamente.";
+                submitButton.disabled = false; // Rehabilitar el botón de envío después del éxito
             } else {
                 parrafo.innerHTML = "Error al registrar el usuario. Inténtelo de nuevo.";
+                submitButton.disabled = false; // Rehabilitar el botón de envío si hay errores
             }
         } catch (error) {
             parrafo.innerHTML = "Error al conectar con el servidor. Inténtelo de nuevo.";
