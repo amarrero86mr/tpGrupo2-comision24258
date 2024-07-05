@@ -48,9 +48,14 @@ const getItemById = async (req, res) => {
   }
 };
 
+const getCreateItem = async (req, res) => {
+  res.render(`create`);
+};
+
 const postCreateItem = async (req, res) => {
   const sql =
-    "insert into item_tbl (cod_item, nombre_item, descripcion_item, id_marca, cod_categoria, stock, precio, descuento,  imgurl_1, imgurl_2) Values (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    "INSERT INTO item_tbl (cod_item, nombre_item, descripcion_item, id_marca, cod_categoria, stock, precio, descuento, imgurl_1, imgurl_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
   const {
     cod_item,
     nombre_item,
@@ -61,8 +66,9 @@ const postCreateItem = async (req, res) => {
     precio,
     descuento,
     imgurl_1,
-    imgurl_2,
+    imgurl_2
   } = req.body;
+
   try {
     const connection = await coneccionBD.getConnection(); // asignamos por la espera de la coneccion
     const [rows] = await connection.query(sql, [
@@ -75,11 +81,25 @@ const postCreateItem = async (req, res) => {
       precio,
       descuento,
       imgurl_1,
-      imgurl_2,
+      imgurl_2
     ]); // creamos una constante para almacenar el resutlado asincronuico de la peticion sql
-    if (rows[0]) {
+
+    connection.release();
+    
+    // .affectedRows > 0
+
+    // if (rows) {
+      // Si la inserción fue exitosa, redirigir a la página de administración
       console.log(rows);
-    }
+      res.redirect('admin');
+      
+    // } else {
+    //   // Si no se insertó ninguna fila, enviar un mensaje de error
+    //   res.status(500).send(`
+    //     <h2>Error al crear el ítem</h2>
+    //     <p>No se pudo crear el ítem. Por favor, inténtelo de nuevo.</p>
+    //   `);
+    // }
   } catch (err) {
     res.status(500).send(`
                 <h2>Internal server error</h2>
@@ -87,10 +107,11 @@ const postCreateItem = async (req, res) => {
             `);
     console.log(err);
   }
+  console.log(rows);
+
 };
 
-const getCreateItem = async (req, res) => {
-  res.render(`create`);
-};
+
+// <!-- <script src="../scripts/registro.js"></script> -->
 
 module.exports = { getAllItems, getItemById, postCreateItem, getCreateItem };
