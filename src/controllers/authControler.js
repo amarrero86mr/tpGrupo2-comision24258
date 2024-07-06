@@ -60,24 +60,29 @@ const login = async (req, res) => {
 
     try {
         const connection = await coneccionBD.getConnection();
-        
         const [rows] = await connection.query(sql, [email]);
-        console.log(rows[0])
-        if (!rows[0].email){
-            return res.status(404).send('Usuario no existe, e-mail incorrecto o no registrado, si el problema persiste cominiquese con sistemas');
-        };
+        connection.release();
 
-        const passValido = bcrypt.compareSync(pass, rows[0].pass);
-
-        if (!passValido) {
-            return res.status(401).send('Contraseña incorrecta o invalida, intente nuevamente, si el problema persiste cominiquese con sistemas');
+        if (rows.length > 0) {
+            const user = rows[0];
+            const isMatch = await bcrypt.compare(pass, user.pass);
+            // console.log(user);
+            if (isMatch) {
+                const token = jwt.sign(
+                    { id: user.id_usuario, email: user.email, admin_user: user.admin_user }, // Incluye admin_user en el token
+                    process.env.JWT_SECRET,
+                    { expiresIn: '3h' }
+                );
+                
+                res.cookie('token', token, { httpOnly: true });
+                res.redirect('index.html');
+                
+            } else {
+                res.status(401).send('Contraseña incorrecta');
+            }
+        } else {
+            res.status(404).send('Email incorrecto');
         }
-
-        const token = jwt.sign({email: rows[0].email}, config.secretKey, { expiresIn: config.TokenExpiresIn });
-
-        res.cookie('token', token, { httpOnly: true });
-        res.redirect('/index.html');
-        // res.status(200).send({auth: true, token});
     } catch (err) {
         res.status(500).send('Internal server error');
         console.log('Error de loging: ', err);

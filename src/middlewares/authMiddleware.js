@@ -1,28 +1,26 @@
 const jwt = require('jsonwebtoken');
-const config = require('../config/config');
+const dotenv = require('dotenv');
 
-module.exports = (req, res, next) => {
+dotenv.config();
 
-    authHeader = req.headers['autorization'];
-
-    if (!autheader) {
-        return res.status(403).send({ auth: false, message: 'token faltante'});
-    }
-
-    const token = authHeader.split(' ')[1];
+const verifyToken = (req, res, next) => {
+    const token = req.cookies.token; // Aquí debería ser req.cookies
+    console.log(token);
     
     if (!token) {
-        return res.status(403).send({ auth: false, message: 'token invalido'});
+        return res.status(401).send('Acceso denegado. Token no proporcionado.');
     }
 
-    jwt.verify(token, config.secretKey, (err, decode) => {
-        
-        if (err) {
-            return res.status(500).send({auth: false, message: 'Falla de autenticacion de token'})
-        }
-
-        req.userid = decode.indexOf;
-
+    try {
+        const decoded = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = decoded;
+        console.log(req.user); // Aquí debería ser req.user, no user
         next();
-    });
+        
+    } catch (err) {
+        res.status(403).send('Acceso denegado. Token inválido.');
+        console.log(err)
+    }
 };
+
+module.exports = { verifyToken };

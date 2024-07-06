@@ -11,7 +11,9 @@ const getAllItems = async (req, res) => {
     const [rows] = await connection.query(sql); // creamos una constante para almasenar el resitlado asincronuico de la peticion spl
 
     connection.release(); //liveramos el pool de coneccion
-    res.render("admin", { dataItems: rows }); // respondemos renderizando admin.ejs a la vez que le pasamos dataItems como propiedad de render
+    // res.render("admin", { dataItems: rows }); // respondemos renderizando admin.ejs a la vez que le pasamos dataItems como propiedad de render
+    return rows;
+
   } catch (err) {
     // tomamos el error y devolvemos una respuesta por pantalla y el error por consola
     res.status(500).send(`
