@@ -5,7 +5,7 @@ const userRoutes = require('./src/routes/userRoutes.js');
 const { coneccionBD, checkConnection } = require('./src/db/dbConfig.js');
 const adminRoutes = require('./src/routes/adminRoutes.js');
 const authRoutes = require('./src/routes/authRoutes.js')
-
+const cookieParser = require('cookie-parser');
 
 const app = express();
 
@@ -18,7 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname,'public')));
 
 app.use(express.json());
-
+app.use(cookieParser());
 
 
 app.get('/', (req,res) => 

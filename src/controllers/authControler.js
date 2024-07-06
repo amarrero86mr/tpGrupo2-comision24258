@@ -75,7 +75,9 @@ const login = async (req, res) => {
 
         const token = jwt.sign({email: rows[0].email}, config.secretKey, { expiresIn: config.TokenExpiresIn });
 
-        res.status(200).send({auth: true, token});
+        res.cookie('token', token, { httpOnly: true });
+        res.redirect('/index.html');
+        // res.status(200).send({auth: true, token});
     } catch (err) {
         res.status(500).send('Internal server error');
         console.log('Error de loging: ', err);
