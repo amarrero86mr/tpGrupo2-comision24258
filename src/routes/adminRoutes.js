@@ -61,7 +61,36 @@ adminRouter.post('/delete/:id', verifyToken, async (req, res) => {
     }
 });
 
-adminRouter.post('/create', adminControler.postCreateItem);
-adminRouter.get('/create', adminControler.getCreateItem);
+// adminRouter.post('/create', adminControler.postCreateItem);
+
+adminRouter.post('/create', verifyToken, async (req, res) => {
+    if (req.user.admin_user != '1') {
+        return res.status(403).send('Acceso denegado. No tiene permisos de administrador.');
+    }
+
+    const { nombre_item, id_marca, cod_categoria, descripcion_item, cod_item, stock, descuento, precio, imgurl_1, imgurl_2 } = req.body;
+    const dataItemedit = { nombre_item, id_marca, cod_categoria, descripcion_item, cod_item, stock, descuento, precio, imgurl_1, imgurl_2 };
+
+    try {
+        const result = await adminControler.postCreateItem(dataItemedit);
+
+        if (result.affectedRows > 0) {
+            res.redirect('/admin');
+        } else {
+            res.status(500).send('Error al crear el ítem');
+        }
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error al eliminar el ítem');
+    }
+});
+
+// adminRouter.get('/create', adminControler.getCreateItem);
+adminRouter.get('/create', verifyToken, async (req, res) => {
+    if (req.user.admin_user != '1') {
+        return res.status(403).send('Acceso denegado. No tiene permisos de administrador.');
+    }
+    res.render(`create`); // Renderiza la vista de administración con los ítems
+});
 
 module.exports = adminRouter;

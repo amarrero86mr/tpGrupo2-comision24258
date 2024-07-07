@@ -38,14 +38,26 @@
         <main>
             <section class="hero">
                 <h1 class="hero__title">NUEVO PRODUCTO</h1>
-                <!-- <form action="https://formspree.io/f/xrgndeyq" method="POST"> -->
-                <form class="form" id="form_create" method="post" action="/create">
+               
+                <form class="form" id="form_create" method="post" action="/admin/create">
                     <!-- <fieldset class="form_primerseccion"> -->
                         <div class="nombre_prod">
                             <input type="text" name="nombre_item" id="nombre_prod" placeholder="Nombre del Producto">
                         </div>
                          <div class="marca_prod">
-                            <input type="text" name="id_marca" id="marca_prod" placeholder="Marca es un numero(1-9)">
+                            <select name="id_marca" id="marca_producto">
+                                <option value="">MARCA</option>
+                                <option value="1">Tradicion Criolla</option>
+                                <option value="2">MATESUR</option>
+                                <option value="3">Amanda</option>
+                                <option value="4">Canarias</option>
+                                <option value="5">Pipore</option>
+                                <option value="6">Playadito</option>
+                                <option value="7">Sara</option>
+                                <option value="8">Thermio</option>
+                                <option value="9">Waterdog</option>
+                                <option value="10">Artentino</option>
+                            </select>
                         </div>
                         <div class="tipo_prod">
                             <select name="cod_categoria" id="tipo_prod">

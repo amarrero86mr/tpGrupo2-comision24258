@@ -49,9 +49,9 @@ const getItemById = async (id) => {
   }
 };
 
-const getCreateItem = async (req, res) => {
-  res.render(`create`);
-};
+// const getCreateItem = async (req, res) => {
+//   res.render(`create`);
+// };
 
 const putEditItem = async (id, dataItemedit) => {
   const { nombre_item, id_marca, cod_categoria, descripcion_item, cod_item, stock, descuento, precio, imgurl_1, imgurl_2 } = dataItemedit;
@@ -82,7 +82,7 @@ const deleteItemById = async (id) => {
   }
 };
 
-const postCreateItem = async (req, res) => {
+const postCreateItem = async (dataItemedit) => {
   const sql =
     "INSERT INTO item_tbl (cod_item, nombre_item, descripcion_item, id_marca, cod_categoria, stock, precio, descuento, imgurl_1, imgurl_2) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
@@ -97,7 +97,7 @@ const postCreateItem = async (req, res) => {
     descuento,
     imgurl_1,
     imgurl_2
-  } = req.body;
+  } = dataItemedit;
 
   try {
     const connection = await coneccionBD.getConnection(); // asignamos por la espera de la coneccion
@@ -115,21 +115,10 @@ const postCreateItem = async (req, res) => {
     ]); // creamos una constante para almacenar el resutlado asincronuico de la peticion sql
 
     connection.release();
-    
-    // .affectedRows > 0
-
-    // if (rows) {
-      // Si la inserción fue exitosa, redirigir a la página de administración
+     
       console.log(rows);
-      res.redirect('admin');
-      
-    // } else {
-    //   // Si no se insertó ninguna fila, enviar un mensaje de error
-    //   res.status(500).send(`
-    //     <h2>Error al crear el ítem</h2>
-    //     <p>No se pudo crear el ítem. Por favor, inténtelo de nuevo.</p>
-    //   `);
-    // }
+      return rows;
+    
   } catch (err) {
     res.status(500).send(`
                 <h2>Internal server error</h2>
@@ -137,11 +126,9 @@ const postCreateItem = async (req, res) => {
             `);
     console.log(err);
   }
-  console.log(rows);
-
 };
 
 
 // <!-- <script src="../scripts/registro.js"></script> -->
 
-module.exports = { getAllItems, getItemById, putEditItem, postCreateItem, getCreateItem, deleteItemById };
+module.exports = { getAllItems, getItemById, putEditItem, postCreateItem, deleteItemById };
