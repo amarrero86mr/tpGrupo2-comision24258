@@ -75,7 +75,7 @@ const login = async (req, res) => {
                 );
                 
                 res.cookie('token', token, { httpOnly: true });
-                res.redirect('index.html');
+                res.redirect('/index.html');
                 
             } else {
                 res.status(401).send('Contraseña incorrecta');

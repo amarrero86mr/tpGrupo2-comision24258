@@ -25,33 +25,61 @@ const getAllItems = async (req, res) => {
 };
 
 // metodo get por id asincronico con renderizacion edit.ejs
-const getItemById = async (req, res) => {
-  const { id } = req.params;
-  const sql =
-    "SELECT A.id_item, A.cod_item, A.cod_categoria, C.desc_categoria, B.nombre_marca, A.nombre_item, A.descripcion_item, A.stock, A.precio, A.descuento, A.imgurl_1, A.imgurl_2 FROM item_tbl A LEFT OUTER JOIN marca_tbl B ON A.id_marca = B.id_marca LEFT OUTER JOIN categoria_tbl C ON A.cod_categoria = C.cod_categoria WHERE A.id_item = ?";
+const getItemById = async (id) => {
+  
+  const sql = "SELECT A.id_item, A.cod_item, A.cod_categoria, C.desc_categoria, B.nombre_marca, A.nombre_item, A.descripcion_item, A.stock, A.precio, A.descuento, A.imgurl_1, A.imgurl_2 FROM item_tbl A LEFT OUTER JOIN marca_tbl B ON A.id_marca = B.id_marca LEFT OUTER JOIN categoria_tbl C ON A.cod_categoria = C.cod_categoria WHERE A.id_item = ?";
 
   try {
     const connection = await coneccionBD.getConnection(); // asignamos por la espera de la coneccion
-    const [rows] = await connection.query(sql, [id]); // creamos una constante para almasenar el resitlado asincronuico de la peticion spl
+    const [rows] = await connection.query(sql, [id]); // creamos una constante para almacenar el resutlado asincrónico de la petición sql
+    // console.log(rows);
 
     if (!rows[0]) {
-      return res.send("Item no encontrado"); //maneja la ausencia de id
+      return "Item no encontrado"; // maneja la ausencia de id
     } else {
-      connection.release(); //liveramos el pool de coneccion
-      res.render("edit", { dataItem: rows[0] }); // respondemos renderizando admin.ejs a la vez que le pasamos dataItem como propiedad de render
-      console.log(rows);
+      connection.release(); // liberamos el pool de conexión
+      return rows[0]; // devolvemos la fila encontrada
     }
+    
   } catch (err) {
-    res.status(500).send(`
-            <h2>Internal server error</h2>
-            <p>sentimos los inconvenientes, por favor intente nuevamente dentro de uno minutos o comuniquese con el administador</p>
-        `);
     console.log(err);
+    
+    throw console.error("Internal server error");
+    
   }
 };
 
 const getCreateItem = async (req, res) => {
   res.render(`create`);
+};
+
+const putEditItem = async (id, dataItemedit) => {
+  const { nombre_item, id_marca, cod_categoria, descripcion_item, cod_item, stock, descuento, precio, imgurl_1, imgurl_2 } = dataItemedit;
+  const sql = 'UPDATE item_tbl SET nombre_item=?, id_marca=?, cod_categoria=?, descripcion_item=?, cod_item=?, stock=?, descuento=?, precio=?, imgurl_1=?, imgurl_2=? WHERE id_item=?';
+  console.log(dataItemedit);
+  try {
+      const connection = await coneccionBD.getConnection();
+      const [rows] = await connection.query(sql, [nombre_item, id_marca, cod_categoria, descripcion_item, cod_item, stock, descuento, precio, imgurl_1, imgurl_2, id]);
+      connection.release();
+      console.log(rows);
+      return rows;
+  } catch (err) {
+      console.log(err);
+      throw new Error('Error al actualizar el ítem');
+  }
+};
+
+const deleteItemById = async (id) => {
+  const sql = "DELETE FROM item_tbl WHERE id_item = ?";
+  try {
+    const connection = await coneccionBD.getConnection();
+    const [result] = await connection.query(sql, [id]);
+    connection.release();
+    return result;
+  } catch (err) {
+    console.error(err);
+    throw new Error('Error al eliminar el ítem');
+  }
 };
 
 const postCreateItem = async (req, res) => {
@@ -116,4 +144,4 @@ const postCreateItem = async (req, res) => {
 
 // <!-- <script src="../scripts/registro.js"></script> -->
 
-module.exports = { getAllItems, getItemById, postCreateItem, getCreateItem };
+module.exports = { getAllItems, getItemById, putEditItem, postCreateItem, getCreateItem, deleteItemById };

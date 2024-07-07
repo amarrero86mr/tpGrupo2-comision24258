@@ -4,8 +4,8 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const verifyToken = (req, res, next) => {
-    const token = req.cookies.token; // Aquí debería ser req.cookies
-    console.log(token);
+    const token = req.cookies.token; 
+    // console.log(token);
     
     if (!token) {
         return res.status(401).send('Acceso denegado. Token no proporcionado.');
@@ -14,7 +14,7 @@ const verifyToken = (req, res, next) => {
     try {
         const decoded = jwt.verify(token, process.env.JWT_SECRET);
         req.user = decoded;
-        console.log(req.user); // Aquí debería ser req.user, no user
+        // console.log(req.user); 
         next();
         
     } catch (err) {

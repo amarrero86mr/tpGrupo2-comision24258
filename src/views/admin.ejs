@@ -87,8 +87,15 @@
 
                                 <td><a href="/admin/edit/<%= item.id_item %>"><img src="../imgs/icons/pen-to-square-solid.svg"
                                             alt="icono de lapis para editar"></a>
-                                    <a href="#"><img src="../imgs/icons/trash-can-solid.svg"
-                                            alt="icono de tacho de basura para delete"></a>
+
+                                            
+                                </td>
+                                <td>
+                                    <form action="/admin/delete/<%= item.id_item %>" method="POST" style="display:inline;">
+                                        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer; width: 2vw;">
+                                            <img src="../imgs/icons/trash-can-solid.svg" alt="icono de tacho de basura para delete">
+                                        </button>
+                                    </form>
                                 </td>
 
                             </tr>
