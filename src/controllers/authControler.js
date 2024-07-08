@@ -12,6 +12,11 @@ const renderLogin = (req, res) => {
     res.render('login');
 };
 
+const logout = (req,res) => {
+    const token = ''
+    res.cookie('token', token, { httpOnly: false });
+    res.redirect('/index.html'); 
+}
 
 const register = async (req, res) =>{
 
@@ -90,4 +95,4 @@ const login = async (req, res) => {
 }
 
 
-module.exports = { renderLogin, renderRegister, register, login };
+module.exports = { renderLogin, renderRegister, register, login, logout };

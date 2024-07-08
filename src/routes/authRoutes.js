@@ -8,5 +8,6 @@ authRouter.post('/login', authControler.login);
 authRouter.get('/registro', authControler.renderRegister);
 authRouter.post('/registro', authControler.register);
 
+authRouter.get('/salir', authControler.logout);
 
 module.exports = authRouter;
