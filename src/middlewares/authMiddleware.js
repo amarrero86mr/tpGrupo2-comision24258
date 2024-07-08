@@ -8,7 +8,7 @@ const verifyToken = (req, res, next) => {
     // console.log(token);
     
     if (!token) {
-        return res.status(401).send('Acceso denegado. Token no proporcionado.');
+        return res.status(401).send('Acceso denegado. Token inválido.');
     }
 
     try {

@@ -116,7 +116,7 @@ const postCreateItem = async (dataItemedit) => {
 
     connection.release();
      
-      console.log(rows);
+      // console.log(rows);
       return rows;
     
   } catch (err) {
