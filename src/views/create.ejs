@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NUEVO | tradicion criolla</title>
+        <link rel="stylesheet" href="../styles/index.css">
+        <link rel="stylesheet" href="../styles/pags/create.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="../imgs/icons/favicon-32x32.png">
+    </head>
+
+    <body class="container">
+        <header>
+            <nav class="navbar">
+                <div class="navbar__logo">
+                    <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                            alt="Logo de Tradición Criolla"></a>
+                </div>
+                <!-- el siguiente div esta oculto para hacerlo visible en la etapa responsive -->
+                <div class="navbar__menu">
+                    <label for="check-menu-responsive" class="checkbtn-menu-responsive">
+                        <img class="img-menu-responsive" src="../imgs/icons/bars-solid.svg"
+                            alt="favicon de menu">
+                    </label>
+                    <input hidden type="checkbox" id="check-menu-responsive">
+                    <ul class="navbar__menu-list">
+                        <li class="navbar__menu-item con__submenu"><a href="../pages/mercado.html">MERCADO</a></li>
+                        <li class="navbar__menu-item"><a href="../pages/admin.html">ADMIN</a></li>
+                        <li class="navbar__menu-item"><a href="#">PEDIDOS</a></li>
+                        <li class="navbar__menu-item"><a href="#">SALIR</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1 class="hero__title">NUEVO PRODUCTO</h1>
+               
+                <form class="form" id="form_create" method="post" action="/admin/create">
+                    <!-- <fieldset class="form_primerseccion"> -->
+                        <div class="nombre_prod">
+                            <input type="text" name="nombre_item" id="nombre_prod" placeholder="Nombre del Producto">
+                        </div>
+                         <div class="marca_prod">
+                            <select name="id_marca" id="marca_producto">
+                                <option value="">MARCA</option>
+                                <option value="1">Tradicion Criolla</option>
+                                <option value="2">MATESUR</option>
+                                <option value="3">Amanda</option>
+                                <option value="4">Canarias</option>
+                                <option value="5">Pipore</option>
+                                <option value="6">Playadito</option>
+                                <option value="7">Sara</option>
+                                <option value="8">Thermio</option>
+                                <option value="9">Waterdog</option>
+                                <option value="10">Artentino</option>
+                            </select>
+                        </div>
+                        <div class="tipo_prod">
+                            <select name="cod_categoria" id="tipo_prod">
+                                <option value="" selected="" disabled="">Categoría</option>
+                                <option value="1">Accesorio</option>
+                                <option value="2">Bolso</option>
+                                <option value="3">Bombilla</option>
+                                <option value="4">Mate</option>
+                                <option value="5">Termo</option>
+                                <option value="6">Yerba</option>
+                            </select>
+                        </div>
+                        <div class="descripcion_prod"> 
+                            <textarea name="descripcion_item" id="descripcion_prod" cols="30" rows="6" placeholder="Descripción del Producto"></textarea>
+                        </div>
+
+                        <div class="codigo_prod"> 
+                            <input type="text" name="cod_item" id="codigo_prod" placeholder="Código">
+                        </div>
+                        <div class="stock_prod">  
+                            <input type="number" name="stock" id="stock_prod" placeholder="Stock">
+                        </div>
+
+                        <div class="promocion_prod">
+                            <select name="descuento" id="promocion_prod">
+                                <option value="" selected="" disabled="">Promocion / NUEVO</option>
+                                <option value="0">Nuevo</option>
+                                <option value="1">10% de Descuento</option>
+                                <option value="2">20% de Descuento</option>
+                                <option value="3">25% de Descuento</option>
+                                <option value="4">30% de Descuento</option>
+                            </select>
+                        </div>
+
+                        <div class="precio_prod"> <!-- cambiar clases -->
+                            <input type="number" name="precio" min="0" id="precio_prod" placeholder="Precio">
+                        </div>
+                        <div class="subir_imgprod">
+                            <label for="subir_imgprod">IMAGENES:
+                            </label>
+                                <input type="text" id="subir_imgprod" name="imgurl_1">
+                                <input type="text" id="subir_imgprod" name="imgurl_2">
+                        </div>
+                        <div class="producto_img">
+
+                        </div>
+
+
+                        <div class="button__section">
+                            <button class="button_send" type="submit">AGREGAR</button>
+                            
+                            <button class="button_borrar" type="reset">LIMPIAR</button>
+                        </div>
+                        <p class="warnings" id="warnings"></p>
+                </form>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <ul>
+                    <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="../pages/mercado.html">MERCADO</a></li>
+                    <li><a href="../pages/registro.html">REGISTRARSE</a></li>
+                    <li><a href="../pages/nosotros.html">NOSOTROS</a></li>
+                </ul>
+                <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                        alt="logo de tradicion criolla"></a>
+            </div>
+            <p>Derechos Registrados 2024 - tradición criolla®</p>
+        </footer>
+    </body>
+</html>

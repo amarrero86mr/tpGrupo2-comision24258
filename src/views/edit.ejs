@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>EDITAR | tradicion criolla</title>
+        <link rel="stylesheet" href="../../styles/index.css">
+        <link rel="stylesheet" href="../../styles/pags/create.css">
+        <link rel="stylesheet" href="../../styles/pags/edit.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="../../imgs/icons/favicon-32x32.png">
+    </head>
+
+    <body class="container">
+        <header>
+            <nav class="navbar">
+                <div class="navbar__logo">
+                    <a href="../index.html"><img src="../../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                            alt="Logo de Tradición Criolla"></a>
+                </div>
+                <!-- el siguiente div esta oculto para hacerlo visible en la etapa responsive -->
+                <div class="navbar__menu">
+                    <label for="check-menu-responsive" class="checkbtn-menu-responsive">
+                        <img class="img-menu-responsive" src="../imgs/icons/bars-solid.svg" alt="favicon de menu">
+                    </label>
+                    <input hidden type="checkbox" id="check-menu-responsive">
+                    <ul class="navbar__menu-list">
+                        <li class="navbar__menu-item con__submenu"><a href="../pages/mercado.html">MERCADO</a></li>
+                        <li class="navbar__menu-item"><a href="../pages/admin.html">ADMIN</a></li>
+                        <li class="navbar__menu-item"><a href="#">PEDIDOS</a></li>
+                        <li class="navbar__menu-item"><a href="#">SALIR</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="hero">
+                <h1 class="hero__title">EDITAR PRODUCTO</h1>
+               
+                    <form class="form" id="form_edit" method="post" action="/admin/edit/<%= dataItem.id_item %>">
+                        
+                        <div class="nombre_prod">
+                            <input type="text" name="nombre_item" id="nombre_prod" value="<%= dataItem.nombre_item %>">
+                        </div>
+                        <div class="marca_prod">
+                            <select name="id_marca" id="marca_producto">
+                                <option value="">MARCA</option>
+                                <option value="1" <% if(dataItem.id_marca == 1) { %> selected <% } %>>Tradicion Criolla</option>
+                                <option value="2" <% if(dataItem.id_marca == 2) { %> selected <% } %>>MATESUR</option>
+                                <option value="3" <% if(dataItem.id_marca == 3) { %> selected <% } %>>Amanda</option>
+                                <option value="4" <% if(dataItem.id_marca == 4) { %> selected <% } %>>Canarias</option>
+                                <option value="5" <% if(dataItem.id_marca == 5) { %> selected <% } %>>Pipore</option>
+                                <option value="6" <% if(dataItem.id_marca == 6) { %> selected <% } %>>Playadito</option>
+                                <option value="7" <% if(dataItem.id_marca == 7) { %> selected <% } %>>Sara</option>
+                                <option value="8" <% if(dataItem.id_marca == 8) { %> selected <% } %>>Thermio</option>
+                                <option value="9" <% if(dataItem.id_marca == 9) { %> selected <% } %>>Waterdog</option>
+                                <option value="10" <% if(dataItem.id_marca == 10) { %> selected <% } %>>Artentino</option>
+                            </select>
+                        </div>
+                        <div class="tipo_prod">
+                            <select name="cod_categoria" id="tipo_prod">
+                                <option value="">CATEGORIA</option>
+                                <option value="1" <% if(dataItem.cod_categoria == 1) { %> selected <% } %>>Accesorio</option>
+                                <option value="2" <% if(dataItem.cod_categoria == 2) { %> selected <% } %>>Bolso</option>
+                                <option value="3" <% if(dataItem.cod_categoria == 3) { %> selected <% } %>>Bombilla</option>
+                                <option value="4" <% if(dataItem.cod_categoria == 4) { %> selected <% } %>>Mate</option>
+                                <option value="5" <% if(dataItem.cod_categoria == 5) { %> selected <% } %>>Termo</option>
+                                <option value="6" <% if(dataItem.cod_categoria == 6) { %> selected <% } %>>Yerba</option>
+                            </select>
+                        </div>
+                        <div class="descripcion_prod">
+                            <textarea name="descripcion_item" id="descripcion_prod" cols="30" rows="6"><%= dataItem.descripcion_item %></textarea>
+                        </div>
+                        <div class="codigo_prod">
+                            <label for="codigo_prod">CODIGO:</label>
+                            <input type="text" name="cod_item" id="codigo_prod" value="<%= dataItem.cod_item %>">
+                        </div>
+                        <div class="stock_prod">
+                            <label for="stock_prod">STOCK:</label>
+                            <input type="number" name="stock" id="stock_prod" value="<%= dataItem.stock %>">
+                        </div>
+                        <div class="promocion_prod">
+                            <label for="promocion_prod">PROMOCION:</label>
+                            <select name="descuento" id="promocion_prod">
+                                <option value="" disabled="">DESCUENTO</option>
+                                <option value="0" <% if(dataItem.descuento == 0) { %> selected <% } %>>Nuevo</option>
+                                <option value="1" <% if(dataItem.descuento == 1) { %> selected <% } %>>10% de Descuento</option>
+                                <option value="2" <% if(dataItem.descuento == 2) { %> selected <% } %>>20% de Descuento</option>
+                                <option value="3" <% if(dataItem.descuento == 3) { %> selected <% } %>>25% de Descuento</option>
+                                <option value="4" <% if(dataItem.descuento == 4) { %> selected <% } %>>30% de Descuento</option>
+                            </select>
+                        </div>
+                        <div class="precio_prod">
+                            <label for="precio_prod">PRECIO:</label>
+                            <input type="number" name="precio" min="0" id="precio_prod" value="<%= dataItem.precio %>">
+                        </div>
+                        <div class="producto_img">
+                            <div class="img_slot">
+                                <a href="#"><img src="../../imgs/icons/trash-can-solid.svg" alt=""></a>
+                                <img src="<%= dataItem.imgurl_1 %>" alt="<%= dataItem.descripcion_item %>">
+                            </div>
+                            <div class="img_slot">
+                                <a href="#"><img src="../../imgs/icons/trash-can-solid.svg" alt=""></a>
+                                <img src="<%= dataItem.imgurl_2 %>" alt="<%= dataItem.descripcion_item %>">
+                            </div>
+                        </div>
+                        <div class="subir_imgprod">
+                            <label for="subir_imgprod">IMAGENES (url):</label>
+                            <input type="text" id="subir_imgprod_uno" name="imgurl_1" value="<%= dataItem.imgurl_1 %>">
+                            <input type="text" id="subir_imgprod_dos" name="imgurl_2" value="<%= dataItem.imgurl_2 %>">
+                        </div>
+                        <div class="button__section">
+                            <button class="button_send" type="submit">EDITAR</button>
+                            <button class="button_borrar" type="reset">CANCELAR</button>
+                        </div>
+                        <p class="warnings" id="warnings"></p>
+                    </form>
+            </section>
+        </main>
+
+        <footer>
+            <div>
+                <ul>
+                    <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="../pages/mercado.html">MERCADO</a></li>
+                    <li><a href="../pages/registro.html">REGISTRARSE</a></li>
+                    <li><a href="../pages/nosotros.html">NOSOTROS</a></li>
+                </ul>
+                <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                        alt="logo de tradicion criolla"></a>
+            </div>
+            <p>Derechos Registrados 2024 - tradición criolla®</p>
+        </footer>
+    </body>
+
+</html>

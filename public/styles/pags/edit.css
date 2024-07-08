@@ -49,7 +49,12 @@
     grid-column: span 2;
     grid-row: 7;
 }
+.img_subida{
+    grid-column: span 2;
+    grid-row: 8;
+}
+
 .button__section{
     grid-column: 2;
-    grid-row: 8;
+    grid-row: 9;
 }

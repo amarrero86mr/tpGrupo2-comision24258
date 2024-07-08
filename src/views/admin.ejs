@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ADMIN | tradicion criolla</title>
+        <link rel="stylesheet" href="../styles/index.css">
+        <link rel="stylesheet" href="../styles/pags/admin.css">
+        <link rel="icon" type="image/png" sizes="32x32" href="../imgs/icons/favicon-32x32.png">
+    </head>
+    <body class="container">
+        <header>
+            <nav class="navbar">
+                <div class="navbar__logo">
+                    <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                            alt="Logo de Tradición Criolla"></a>
+                </div>
+                <!-- el siguiente div esta oculto para hacerlo visible en la etapa responsive -->
+                <div class="navbar__menu">
+                    <label for="check-menu-responsive" class="checkbtn-menu-responsive">
+                        <img class="img-menu-responsive" src="../imgs/icons/bars-solid.svg" alt="favicon de menu">
+                    </label>
+                    <input hidden type="checkbox" id="check-menu-responsive">
+                    <ul class="navbar__menu-list">
+                        <li class="navbar__menu-item con__submenu"><a href="../pages/mercado.html">MERCADO</a></li>
+                        <li class="navbar__menu-item"><a href="../pages/admin.html">ADMIN</a></li>
+                        <li class="navbar__menu-item"><a href="#">PEDIDOS</a></li>
+                        <li class="navbar__menu-item"><a href="#">SALIR</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <main>
+            <!-- section fin semantico para busqueda de google -->
+            <section class="hero">
+                <div>
+                    <h2 class="hero__title">LISTADO DE PRODUCTOS</h2>
+                </div>
+                <div class="hero_search">
+                    <input class="search" id="search" type="search" placeholder="Código, Nombre, Categoría">
+                    <a class="button_search" id="button_search"><img src="../imgs/icons/magnifying-glass-solid.svg"
+                            alt="icono de buscador"></a>
+                </div>
+
+            </section>
+            <!-- los datos cargados son de vista, luego seran traidos desde BBDD -->
+            <div>
+                <table>
+                    <thead>
+                        <th>ID</th>
+                        <th>CODIGO</th>
+                        <th>NOMBRE</th>
+                        <th>CATEGORIA</th>
+                        <th>MARCA</th>
+                        <th>STOCK</th>
+                        <th>PRECIO</th>
+                        <th><a href="/admin/create">Agregar<img src="../imgs/icons/circle-plus-solid.svg"
+                                    alt=""></a></th>
+                    </thead>
+                    <tbody>
+                        <% dataItems.forEach(item=> { %>
+                            <tr class="table__row">
+                                <td class="">
+                                    <%= item.id_item %>
+                                </td>
+                                <td class="">
+                                    <%= item.cod_item %>
+                                </td>
+                                <td class="">
+                                    <%= item.nombre_item %>
+                                </td>
+                                <td class="">
+                                    <%= item.desc_categoria %>
+                                </td>
+
+                                <td class="">
+                                    <%= item.nombre_marca %>
+                                </td>
+                                <td class="">
+                                    <%= item.stock %>
+                                </td>
+                                <td class="">
+                                    <%= item.precio %>
+                                </td>
+
+                                <td><a href="/admin/edit/<%= item.id_item %>"><img src="../imgs/icons/pen-to-square-solid.svg"
+                                            alt="icono de lapis para editar"></a>
+
+                                            
+                                </td>
+                                <td>
+                                    <form action="/admin/delete/<%= item.id_item %>" method="POST" style="display:inline;">
+                                        <button type="submit" style="background:none; border:none; padding:0; cursor:pointer; width: 2vw;">
+                                            <img src="../imgs/icons/trash-can-solid.svg" alt="icono de tacho de basura para delete">
+                                        </button>
+                                    </form>
+                                </td>
+
+                            </tr>
+                            <% }) %>
+                            
+                    </tbody>
+                </table>
+            </div>
+        </main>
+        <footer>
+            <div>
+                <ul>
+                    <li><a href="../pages/contacto.html">CONTACTO</a></li>
+                    <li><a href="../pages/mercado.html">MERCADO</a></li>
+                    <li><a href="../pages/registro.html">REGISTRARSE</a></li>
+                    <li><a href="../pages/nosotros.html">NOSOTROS</a></li>
+                </ul>
+                <a href="../index.html"><img src="../imgs/logo/Designer__6_-derecho-removebg-preview.png"
+                        alt="logo de tradicion criolla"></a>
+            </div>
+            <p>Derechos Registrados 2024 - tradición criolla®</p>
+        </footer>
+        <script src="../scripts/mercado.js"></script>
+    </body>
+
+</html>
