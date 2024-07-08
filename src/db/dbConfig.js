@@ -5,6 +5,7 @@ require('dotenv').config();
 // creammos y configuramos el pool de coneccion
 const coneccionBD = createPool({
   host: process.env.DB_HOST,
+
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
   database: process.env.DB_NAME,
@@ -14,16 +15,6 @@ const coneccionBD = createPool({
   queueLimit: 0,
 });
 
-
-//testeamos la conceccion
-// coneccionBD.getConnection((err, connection) => {
-//   if (err) {
-//     console.error('Error de conexión con la base de datos:', err);
-//     return;
-//   }
-//   console.log('Conexión con la base de datos exitosa');
-//   connection.release();
-// });
 
 coneccionBD.getConnection()
     .then(connection => {
@@ -36,22 +27,3 @@ coneccionBD.getConnection()
 
 
 module.exports = coneccionBD;
-
-// const coneccionBD = mysql.createConnection({
-//   host: process.env.DB_HOST,
-//   user: process.env.DB_USER,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_NAME,
-//   port:3306,
-//   waitForConnections:true,
-//   connectionLimit: 5,
-//   queueLimit: 0
-// });
-
-// coneccionBD.connect((err) => {
-//   if (err) {
-//     console.error('error de coneccion con dataBase: ', err);
-//     return;
-//   }
-//   console.log('coneccion con dataBase exitosa');
-// })
